@@ -7,59 +7,82 @@
 //
 
 #import "MM_PlayerCharacter.h"
+#import "MM_AbilityScore.h"
+#import "MM_Spell.h"
+#import "MM_SpellSlots.h"
 
 @implementation MM_PlayerCharacter
 
 - (instancetype)init
 {
     self = [self initWithCharacterName:@"Merlin"
+                            playerName:@"Mark"
                         characterClass:@"Wizard"
                                  level:@1
-                                gender:@"Male"
                                   race:@"Human"
                                    age:@23
                              alignment:@"Neutral Good"
-                              strength:@12
-                             dexterity:@14
-                          constitution:@17
-                          intelligence:@18
-                                wisdom:@18
-                              charisma:@14];
+                      experiencePoints:@0
+                              strengthScore:@12
+                             dexterityScore:@14
+                          constitutionScore:@17
+                          intelligenceScore:@18
+                                wisdomScore:@18
+                              charismaScore:@14];
     return self;
 }
 
 - (instancetype)initWithCharacterName:(NSString *)characterName
+                           playerName:(NSString *)playerName
                        characterClass:(NSString *)characterClass
                                 level:(NSNumber *)level
-                               gender:(NSString *)gender
                                  race:(NSString *)race
                                   age:(NSNumber *)age
                             alignment:(NSString *)alignment
-                             strength:(NSNumber *)strength
-                            dexterity:(NSNumber *)dexterity
-                         constitution:(NSNumber *)constitution
-                         intelligence:(NSNumber *)intelligence
-                               wisdom:(NSNumber *)wisdom
-                             charisma:(NSNumber *)charisma
+                     experiencePoints:(NSNumber *)experiencePoints
+                             strengthScore:(NSNumber *)strengthScore
+                            dexterityScore:(NSNumber *)dexterityScore
+                         constitutionScore:(NSNumber *)constitutionScore
+                         intelligenceScore:(NSNumber *)intelligenceScore
+                               wisdomScore:(NSNumber *)wisdomScore
+                             charismaScore:(NSNumber *)charismaScore
 {
     self = [super init];
     if (self)
     {
         _characterName = characterName;
+        _playerName = playerName;
         _characterClass = characterClass;
         _level = level;
-        _gender = gender;
         _race = race;
         _age = age;
         _alignment = alignment;
-        _strength = strength;
-        _dexterity = dexterity;
-        _constitution = constitution;
-        _intelligence = intelligence;
-        _wisdom = wisdom;
-        _charisma = charisma;
+        _experiencePoints = experiencePoints;
+        
+        _strength = [[MM_AbilityScore alloc]initWithName:@"Strength" score:strengthScore];
+        _dexterity = [[MM_AbilityScore alloc]initWithName:@"Dexterity" score:dexterityScore];
+        _constitution = [[MM_AbilityScore alloc]initWithName:@"Constitution" score:constitutionScore];
+        _intelligence = [[MM_AbilityScore alloc]initWithName:@"Intelligence" score:intelligenceScore];
+        _wisdom = [[MM_AbilityScore alloc]initWithName:@"Wisdom" score:wisdomScore];
+        _charisma = [[MM_AbilityScore alloc]initWithName:@"Charisma" score:charismaScore];
+        _abilityScoresArray = @[self.strength, self.dexterity, self.constitution, self.intelligence, self.wisdom, self.charisma];
+        
+        if ([characterClass isEqualToString:@"Wizard"] || [characterClass isEqualToString:@"Cleric"])
+        {
+            _spellSlots = [[MM_SpellSlots alloc]initWithSlotMaximums:@[@3, @2, @0, @0, @0, @0, @0, @0, @0, @0]];
+        }
     }
     return self;
 }
+
+- (void)castSpell:(MM_Spell *)spell atLevel:(NSNumber *)level
+{
+    NSInteger levelIndex = [level integerValue];
+    if ([self.spellSlots.slotsRemaining[levelIndex] integerValue] > 0)
+    {
+        [self.spellSlots.spellSlotsArray[levelIndex] addObject:spell];
+    }
+}
+
 
 @end

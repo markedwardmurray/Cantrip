@@ -20,6 +20,8 @@
 		6AA2E3051A9A928200843582 /* MM_MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3041A9A928200843582 /* MM_MenuTableViewController.m */; };
 		6AA2E30A1A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */; };
 		6AA2E30D1A9B747A00843582 /* MM_Spell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E30C1A9B747A00843582 /* MM_Spell.m */; };
+		6AA2E3101A9B7BE600843582 /* MM_SpellSlots.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */; };
+		6AA2E3131A9BA61500843582 /* MM_AbilityScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_BasicInfoTableViewCell.m; sourceTree = "<group>"; };
 		6AA2E30B1A9B747A00843582 /* MM_Spell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_Spell.h; sourceTree = "<group>"; };
 		6AA2E30C1A9B747A00843582 /* MM_Spell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_Spell.m; sourceTree = "<group>"; };
+		6AA2E30E1A9B7BE600843582 /* MM_SpellSlots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_SpellSlots.h; sourceTree = "<group>"; };
+		6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_SpellSlots.m; sourceTree = "<group>"; };
+		6AA2E3111A9BA61500843582 /* MM_AbilityScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_AbilityScore.h; sourceTree = "<group>"; };
+		6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_AbilityScore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +110,7 @@
 				6AA2E2DE1A9A595B00843582 /* Main.storyboard */,
 				6AA2E2FA1A9A5A3800843582 /* MM_PlayerCharacter.h */,
 				6AA2E2FB1A9A5A3800843582 /* MM_PlayerCharacter.m */,
-				6AA2E2FD1A9A61F000843582 /* MM_CharacterSkill.h */,
-				6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */,
+				6AA2E3141A9BA6AC00843582 /* Character Property Classes */,
 				6AA2E30B1A9B747A00843582 /* MM_Spell.h */,
 				6AA2E30C1A9B747A00843582 /* MM_Spell.m */,
 				6AA2E2E11A9A595B00843582 /* Images.xcassets */,
@@ -153,6 +158,19 @@
 				6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		6AA2E3141A9BA6AC00843582 /* Character Property Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6AA2E3111A9BA61500843582 /* MM_AbilityScore.h */,
+				6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */,
+				6AA2E2FD1A9A61F000843582 /* MM_CharacterSkill.h */,
+				6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */,
+				6AA2E30E1A9B7BE600843582 /* MM_SpellSlots.h */,
+				6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */,
+			);
+			name = "Character Property Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA2E3101A9B7BE600843582 /* MM_SpellSlots.m in Sources */,
 				6AA2E30D1A9B747A00843582 /* MM_Spell.m in Sources */,
 				6AA2E30A1A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m in Sources */,
 				6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */,
@@ -263,6 +282,7 @@
 				6AA2E2D41A9A595A00843582 /* main.m in Sources */,
 				6AA2E3051A9A928200843582 /* MM_MenuTableViewController.m in Sources */,
 				6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */,
+				6AA2E3131A9BA61500843582 /* MM_AbilityScore.m in Sources */,
 				6AA2E2FC1A9A5A3800843582 /* MM_PlayerCharacter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

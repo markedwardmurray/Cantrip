@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class MM_AbilityScore;
+@class MM_Spell;
+@class MM_SpellSlots;
+
 @interface MM_PlayerCharacter : NSObject
 
 @property (strong, nonatomic) NSString *characterName;
@@ -24,20 +28,13 @@
 @property (strong, nonatomic) NSNumber *experiencePoints;
 
 // ability scores
-@property (strong, nonatomic) NSNumber *strength;
-@property (strong, nonatomic) NSNumber *dexterity;
-@property (strong, nonatomic) NSNumber *constitution;
-@property (strong, nonatomic) NSNumber *intelligence;
-@property (strong, nonatomic) NSNumber *wisdom;
-@property (strong, nonatomic) NSNumber *charisma;
-
-// ability bonuses
-@property (strong, nonatomic) NSNumber *abilityBonusStrength;
-@property (strong, nonatomic) NSNumber *abilityBonusDexterity;
-@property (strong, nonatomic) NSNumber *abilityBonusConstitution;
-@property (strong, nonatomic) NSNumber *abilityBonusIntelligence;
-@property (strong, nonatomic) NSNumber *abilityBonusWisdom;
-@property (strong, nonatomic) NSNumber *abilityBonusCharisma;
+@property (strong, nonatomic) NSArray *abilityScoresArray;
+@property (strong, nonatomic) MM_AbilityScore *strength;
+@property (strong, nonatomic) MM_AbilityScore *dexterity;
+@property (strong, nonatomic) MM_AbilityScore *constitution;
+@property (strong, nonatomic) MM_AbilityScore *intelligence;
+@property (strong, nonatomic) MM_AbilityScore *wisdom;
+@property (strong, nonatomic) MM_AbilityScore *charisma;
 
 // proficiencies
 @property (strong, nonatomic) NSNumber *proficiencyBonus;
@@ -106,6 +103,8 @@
 
 // spells
 @property (strong, nonatomic) NSObject *spellBook;
-@property (strong, nonatomic) NSMutableArray *spellSlots;
+@property (strong, nonatomic) MM_SpellSlots *spellSlots;
+
+- (void)castSpell:(MM_Spell *)spell atLevel:(NSNumber *)level;
 
 @end

@@ -28,6 +28,7 @@
     self.alignmentLabel.text = self.playerCharacter.alignment;
     self.specializationLabel.text = self.playerCharacter.specialization;
     self.experienceLabel.text = [NSString stringWithFormat:@"%@", self.playerCharacter.experiencePoints];
+    self.ageLabel.text = [NSString stringWithFormat:@"%@", self.playerCharacter.age];
     self.playerNameLabel.text = self.playerCharacter.playerName;
 }
 
