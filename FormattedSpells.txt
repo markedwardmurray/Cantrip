@@ -1,0 +1,85 @@
+
+MM_Spell *acidSplash = [[MM_Spell alloc]
+                            initWithName:@"Acid Splash"
+                          allowedClasses:@[@"Wizard"]
+                                   level:@0
+                                  school:@"Conjuration"
+                             castingTime:@"1 action"
+                                   range:@"60 feet"
+                              components:@"V, S"
+                                duration:@"Instantaneous"
+                        spellDescription:@"You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.\n    This spell’s damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6)."];
+
+
+                            MM_Spell *light = [[MM_Spell alloc]
+                        initWithName:@"Light"
+                      allowedClasses:@[@"Wizard"]
+                               level:@0
+                              school:@"Evocation"
+                         castingTime:@"1 action"
+                               range:@"Touch"
+                       components:@"V, M (a firely or phosphorescent moss)"
+                       duration:@"1 hour"
+                       spellDescription:@"You touch one object that is no larger than 10 feet in any dimension. Until the spell ends, the object sheds bright light in a 20-foot radius and dim light for an additional 20 feet. The light can be colored as you like. Completely covering the object with something opaque blocks the light. The spell ends if you cast it again or dismiss it as an action.\n    If you target an object held or worn by a hostile creature, that creature must succeed on a Dexterity saving throw to avoid the spell."];
+
+
+   MM_Spell *mageHand = [[MM_Spell alloc]
+                          initWithName:@"Mage Hand"
+                        allowedClasses:@[@"Wizard"]
+                                 level:@0
+                                school:@"Conjuration"
+                           castingTime:@"1 action"
+                                 range:@"30 feet"
+                            components:@"V, S"
+                              duration:@"1 minute"
+                      spellDescription:@"A spectral, floating hand appears at a point you choose within range. The hand lasts for the duration or until you dismiss it as an action. The hand vanishes if it is ever more than 30 feet away from you or if you cast thisspell again.\n    You can use your action to control the hand. You can use the hand to manipulate an object, open an unlocked door or container, stow or retrieve an item from an open container, or pour the contents out of a vial. You can move the hand up to 30 feet each time you use it.\n    The hand can’t attack, activate magic items, or carry more than 10 pounds."];
+
+
+
+
+    MM_Spell *comprehendLanguages = [[MM_Spell alloc]
+              initWithName:@"Comprehend Languages"
+            allowedClasses:@[@"Wizard"]
+                     level:@1
+                    school:@"Divination (ritual)"
+               castingTime:@"1 action"
+                     range:@"Self"
+                components:@"V, S, M (a pinch of soot and salt)"
+                  duration:@"1  hour"
+          spellDescription:@"For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text.\n    This spell doesn’t decode secret messages in a text or a glyph, such as an arcane sigil, that isn’t part of a written language."];
+
+
+
+    MM_Spell *detectMagic = [[MM_Spell alloc]
+                initWithName:@"Detect Magic"
+              allowedClasses:@[@"Wizard"]
+                       level:@1
+                      school:@"Divination (ritual)"
+                 castingTime:@"1 action"
+                       range:@"Self"
+                  components:@"V, S"
+                    duration:@"Concentration, up to 10 minutes"
+            spellDescription:@"For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.\n    The spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."];
+
+
+    MM_Spell *identify_spell = [[MM_Spell alloc]
+            initWithName:@"Identify"
+          allowedClasses:@[@"Wizard"]
+                   level:@1
+                  school:@"Divination (ritual)"
+             castingTime:@"1 minute"
+                   range:@"Touch"
+              components:@"V, S, M (a pearl worth at least 100 gp and an owl feather)"
+                duration:@"Instantaneous"
+        spellDescription:@"You choose one object that you must touch throughout the casting of the spell. If it is a magic item or some other magic-imbued object, you learn its properties and how to use them, whether it requires attunement to use, and how many charges it has, if any. You learn whether any spells are affecting the item and what they are. If the item was created by a spell, you learn which spell created it.\n    If you instead touch a creature throughout the casting, you learn what spells, if any, are currently affecting it."];
+
+    MM_Spell *magicMissile = [[MM_Spell alloc]
+            initWithName:@"Magic Missile"
+          allowedClasses:@[@"Wizard"]
+                   level:@1
+                  school:@"Evocation"
+             castingTime:@"1 action"
+                   range:@"120 feet"
+              components:@"V, S"
+                duration:@"Instantenous"
+        spellDescription:@"You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.\n    At Higher Levels. When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st."];
