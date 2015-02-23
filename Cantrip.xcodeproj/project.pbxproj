@@ -10,11 +10,15 @@
 		6AA2E2D41A9A595A00843582 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D31A9A595A00843582 /* main.m */; };
 		6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D61A9A595A00843582 /* AppDelegate.m */; };
 		6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D81A9A595A00843582 /* Cantrip.xcdatamodeld */; };
-		6AA2E2DD1A9A595B00843582 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2DC1A9A595B00843582 /* ViewController.m */; };
 		6AA2E2E01A9A595B00843582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA2E2DE1A9A595B00843582 /* Main.storyboard */; };
 		6AA2E2E21A9A595B00843582 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AA2E2E11A9A595B00843582 /* Images.xcassets */; };
 		6AA2E2E51A9A595B00843582 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AA2E2E31A9A595B00843582 /* LaunchScreen.xib */; };
 		6AA2E2F11A9A595B00843582 /* CantripTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2F01A9A595B00843582 /* CantripTests.m */; };
+		6AA2E2FC1A9A5A3800843582 /* MM_PlayerCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2FB1A9A5A3800843582 /* MM_PlayerCharacter.m */; };
+		6AA2E2FF1A9A61F000843582 /* MM_CharacterSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */; };
+		6AA2E3021A9A6C3500843582 /* MM_CharacterSheetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3011A9A6C3500843582 /* MM_CharacterSheetTableViewController.m */; };
+		6AA2E3051A9A928200843582 /* MM_MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3041A9A928200843582 /* MM_MenuTableViewController.m */; };
+		6AA2E30A1A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +38,22 @@
 		6AA2E2D51A9A595A00843582 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AA2E2D61A9A595A00843582 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6AA2E2D91A9A595A00843582 /* Cantrip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cantrip.xcdatamodel; sourceTree = "<group>"; };
-		6AA2E2DB1A9A595B00843582 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6AA2E2DC1A9A595B00843582 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6AA2E2DF1A9A595B00843582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6AA2E2E11A9A595B00843582 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6AA2E2E41A9A595B00843582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6AA2E2EA1A9A595B00843582 /* CantripTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CantripTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA2E2EF1A9A595B00843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA2E2F01A9A595B00843582 /* CantripTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CantripTests.m; sourceTree = "<group>"; };
+		6AA2E2FA1A9A5A3800843582 /* MM_PlayerCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_PlayerCharacter.h; sourceTree = "<group>"; };
+		6AA2E2FB1A9A5A3800843582 /* MM_PlayerCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_PlayerCharacter.m; sourceTree = "<group>"; };
+		6AA2E2FD1A9A61F000843582 /* MM_CharacterSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CharacterSkill.h; sourceTree = "<group>"; };
+		6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CharacterSkill.m; sourceTree = "<group>"; };
+		6AA2E3001A9A6C3500843582 /* MM_CharacterSheetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CharacterSheetTableViewController.h; sourceTree = "<group>"; };
+		6AA2E3011A9A6C3500843582 /* MM_CharacterSheetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CharacterSheetTableViewController.m; sourceTree = "<group>"; };
+		6AA2E3031A9A928200843582 /* MM_MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_MenuTableViewController.h; sourceTree = "<group>"; };
+		6AA2E3041A9A928200843582 /* MM_MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_MenuTableViewController.m; sourceTree = "<group>"; };
+		6AA2E3081A9A9C8E00843582 /* MM_BasicInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_BasicInfoTableViewCell.h; sourceTree = "<group>"; };
+		6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_BasicInfoTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +97,12 @@
 			children = (
 				6AA2E2D51A9A595A00843582 /* AppDelegate.h */,
 				6AA2E2D61A9A595A00843582 /* AppDelegate.m */,
-				6AA2E2DB1A9A595B00843582 /* ViewController.h */,
-				6AA2E2DC1A9A595B00843582 /* ViewController.m */,
+				6AA2E3061A9A9B8300843582 /* View Controllers */,
 				6AA2E2DE1A9A595B00843582 /* Main.storyboard */,
+				6AA2E2FA1A9A5A3800843582 /* MM_PlayerCharacter.h */,
+				6AA2E2FB1A9A5A3800843582 /* MM_PlayerCharacter.m */,
+				6AA2E2FD1A9A61F000843582 /* MM_CharacterSkill.h */,
+				6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */,
 				6AA2E2E11A9A595B00843582 /* Images.xcassets */,
 				6AA2E2E31A9A595B00843582 /* LaunchScreen.xib */,
 				6AA2E2D81A9A595A00843582 /* Cantrip.xcdatamodeld */,
@@ -120,6 +135,19 @@
 				6AA2E2EF1A9A595B00843582 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AA2E3061A9A9B8300843582 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6AA2E3031A9A928200843582 /* MM_MenuTableViewController.h */,
+				6AA2E3041A9A928200843582 /* MM_MenuTableViewController.m */,
+				6AA2E3001A9A6C3500843582 /* MM_CharacterSheetTableViewController.h */,
+				6AA2E3011A9A6C3500843582 /* MM_CharacterSheetTableViewController.m */,
+				6AA2E3081A9A9C8E00843582 /* MM_BasicInfoTableViewCell.h */,
+				6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,10 +250,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA2E30A1A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m in Sources */,
 				6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */,
+				6AA2E3021A9A6C3500843582 /* MM_CharacterSheetTableViewController.m in Sources */,
+				6AA2E2FF1A9A61F000843582 /* MM_CharacterSkill.m in Sources */,
 				6AA2E2D41A9A595A00843582 /* main.m in Sources */,
-				6AA2E2DD1A9A595B00843582 /* ViewController.m in Sources */,
+				6AA2E3051A9A928200843582 /* MM_MenuTableViewController.m in Sources */,
 				6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */,
+				6AA2E2FC1A9A5A3800843582 /* MM_PlayerCharacter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

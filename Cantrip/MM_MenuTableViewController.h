@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MM_MenuTableViewController.h
 //  Cantrip
 //
 //  Created by Mark Murray on 2/22/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MM_MenuTableViewController : UITableViewController
 
 @end
-
