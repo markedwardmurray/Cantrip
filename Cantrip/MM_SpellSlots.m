@@ -22,11 +22,12 @@
     self = [super init];
     if (self)
     {
-        _slotMaximums = [[NSMutableArray alloc]init];
-        [self.slotMaximums addObjectsFromArray:slotMaximums];
+//        _slotMaximums = [[NSMutableArray alloc]init];
+//        [self.slotMaximums addObjectsFromArray:slotMaximums];
         
-        _slotsRemaining = [[NSMutableArray alloc]init];
-        [self.slotsRemaining addObject:slotMaximums];
+        _slotMaximums = slotMaximums;
+        
+        _slotsRemaining = slotMaximums;
         
         _level0Slots = [[NSMutableArray alloc]init];
         _level1Slots = [[NSMutableArray alloc]init];
@@ -48,13 +49,15 @@
 
 - (void)calculateSlotsRemaining
 {
+    NSMutableArray *currentSlotsRemaining;
     for (NSInteger i=0; i<[self.spellSlotsArray count]; i++)
     {
         NSMutableArray *currentLevelSlots = self.spellSlotsArray[i];
         NSInteger usedSlots = [currentLevelSlots count];
         NSInteger remainingSlots = [self.slotMaximums[i] integerValue] - usedSlots;
-        [self.slotsRemaining replaceObjectAtIndex:i withObject:[NSNumber numberWithInteger:remainingSlots]];
+        [currentSlotsRemaining addObject:@(remainingSlots)];
     }
+    self.slotsRemaining = [NSArray arrayWithArray:currentSlotsRemaining];
 }
 
 @end

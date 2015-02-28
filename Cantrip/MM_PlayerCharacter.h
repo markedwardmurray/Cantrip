@@ -41,19 +41,9 @@
 @property (strong, nonatomic) NSNumber *inspiration;
 @property (strong, nonatomic) NSNumber *perception;
 
-// saving throws
-@property (nonatomic) BOOL canSaveWithStrength;
-@property (strong, nonatomic) NSNumber *saveBonusStrength;
-@property (nonatomic) BOOL canSaveWithDexterity;
-@property (strong, nonatomic) NSNumber *saveBonusDexterity;
-@property (nonatomic) BOOL canSaveWithConstitution;
-@property (strong, nonatomic) NSNumber *saveBonusConstitution;
-@property (nonatomic) BOOL canSaveWithIntelligence;
-@property (strong, nonatomic) NSNumber *saveBonusIntelligence;
-@property (nonatomic) BOOL canSaveWithWisdom;
-@property (strong, nonatomic) NSNumber *saveBonusWisdom;
-@property (nonatomic) BOOL canSaveWithCharisma;
-@property (strong, nonatomic) NSNumber *saveBonusCharisma;
+
+
+
 
 // skill checks
 @property (nonatomic) BOOL canUseSkillAcrobatics;

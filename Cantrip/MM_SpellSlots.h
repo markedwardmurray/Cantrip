@@ -11,8 +11,8 @@
 
 @interface MM_SpellSlots : NSObject
 
-@property (strong, nonatomic) NSMutableArray *slotMaximums;
-@property (strong, nonatomic) NSMutableArray *slotsRemaining;
+@property (strong, nonatomic) NSArray *slotMaximums;
+@property (strong, nonatomic) NSArray *slotsRemaining;
 
 @property (strong, nonatomic) NSArray *spellSlotsArray;
 @property (strong, nonatomic) NSMutableArray *level0Slots;
@@ -27,5 +27,7 @@
 @property (strong, nonatomic) NSMutableArray *level9Slots;
 
 - (instancetype)initWithSlotMaximums:(NSArray *)slotMaximums;
+
+- (void)calculateSlotsRemaining;
 
 @end

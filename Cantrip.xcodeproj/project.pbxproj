@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A1ACADA1AA0CEA9002A231F /* MM_StarterSetDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1ACAD91AA0CEA9002A231F /* MM_StarterSetDataManager.m */; };
+		6A1ACAE01AA0E3DF002A231F /* MM_CharacterListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1ACADF1AA0E3DF002A231F /* MM_CharacterListTableViewController.m */; };
+		6A25078E1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A25078D1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.m */; };
+		6A2507911AA0F2B900C2C98C /* MM_SpellBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507901AA0F2B900C2C98C /* MM_SpellBookTableViewController.m */; };
+		6A2507941AA0F56C00C2C98C /* MM_SpellDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507931AA0F56C00C2C98C /* MM_SpellDetailTableViewController.m */; };
+		6A2507981AA10CDE00C2C98C /* PlayerCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507971AA10CDE00C2C98C /* PlayerCharacter.m */; };
+		6A25079B1AA10CDF00C2C98C /* SchoolOfMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A25079A1AA10CDF00C2C98C /* SchoolOfMagic.m */; };
+		6A25079E1AA10CDF00C2C98C /* CharacterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A25079D1AA10CDF00C2C98C /* CharacterClass.m */; };
+		6A2507A41AA10CDF00C2C98C /* SpellBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507A31AA10CDF00C2C98C /* SpellBook.m */; };
+		6A2507A71AA10CDF00C2C98C /* SpellLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507A61AA10CDF00C2C98C /* SpellLibrary.m */; };
+		6A2507AA1AA10D1200C2C98C /* Spell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507A91AA10D1200C2C98C /* Spell.m */; };
+		6A2507AD1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507AC1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.m */; };
+		6A2507B01AA12BB500C2C98C /* MM_AddCharacterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507AF1AA12BB500C2C98C /* MM_AddCharacterViewController.m */; };
+		6A2507B41AA152BE00C2C98C /* PlayerCharacter+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507B31AA152BE00C2C98C /* PlayerCharacter+Methods.m */; };
+		6A2507B71AA1546000C2C98C /* CharacterClass+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507B61AA1546000C2C98C /* CharacterClass+Methods.m */; };
+		6A2507BA1AA1552700C2C98C /* SchoolOfMagic+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507B91AA1552700C2C98C /* SchoolOfMagic+Methods.m */; };
+		6A2507BD1AA155C500C2C98C /* SpellBook+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507BC1AA155C500C2C98C /* SpellBook+Methods.m */; };
+		6A2507C01AA156C500C2C98C /* SpellLibrary+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507BF1AA156C500C2C98C /* SpellLibrary+Methods.m */; };
+		6A2507C31AA1578D00C2C98C /* Spell+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507C21AA1578D00C2C98C /* Spell+Methods.m */; };
+		6A5136961AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5136951AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m */; };
+		6A5136991AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5136981AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m */; };
+		6A51369B1AA24E9B00EF9FEC /* MAIN.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A51369A1AA24E9B00EF9FEC /* MAIN.Storyboard */; };
 		6AA2E2D41A9A595A00843582 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D31A9A595A00843582 /* main.m */; };
 		6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D61A9A595A00843582 /* AppDelegate.m */; };
 		6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D81A9A595A00843582 /* Cantrip.xcdatamodeld */; };
@@ -35,6 +57,49 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A1ACAD81AA0CEA9002A231F /* MM_StarterSetDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_StarterSetDataManager.h; sourceTree = "<group>"; };
+		6A1ACAD91AA0CEA9002A231F /* MM_StarterSetDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_StarterSetDataManager.m; sourceTree = "<group>"; };
+		6A1ACADE1AA0E3DF002A231F /* MM_CharacterListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CharacterListTableViewController.h; sourceTree = "<group>"; };
+		6A1ACADF1AA0E3DF002A231F /* MM_CharacterListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CharacterListTableViewController.m; sourceTree = "<group>"; };
+		6A25078C1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CharacterDetailTableViewController.h; sourceTree = "<group>"; };
+		6A25078D1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CharacterDetailTableViewController.m; sourceTree = "<group>"; };
+		6A25078F1AA0F2B900C2C98C /* MM_SpellBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_SpellBookTableViewController.h; sourceTree = "<group>"; };
+		6A2507901AA0F2B900C2C98C /* MM_SpellBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_SpellBookTableViewController.m; sourceTree = "<group>"; };
+		6A2507921AA0F56C00C2C98C /* MM_SpellDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_SpellDetailTableViewController.h; sourceTree = "<group>"; };
+		6A2507931AA0F56C00C2C98C /* MM_SpellDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_SpellDetailTableViewController.m; sourceTree = "<group>"; };
+		6A2507961AA10CDE00C2C98C /* PlayerCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCharacter.h; sourceTree = "<group>"; };
+		6A2507971AA10CDE00C2C98C /* PlayerCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCharacter.m; sourceTree = "<group>"; };
+		6A2507991AA10CDF00C2C98C /* SchoolOfMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolOfMagic.h; sourceTree = "<group>"; };
+		6A25079A1AA10CDF00C2C98C /* SchoolOfMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolOfMagic.m; sourceTree = "<group>"; };
+		6A25079C1AA10CDF00C2C98C /* CharacterClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterClass.h; sourceTree = "<group>"; };
+		6A25079D1AA10CDF00C2C98C /* CharacterClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterClass.m; sourceTree = "<group>"; };
+		6A2507A21AA10CDF00C2C98C /* SpellBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpellBook.h; sourceTree = "<group>"; };
+		6A2507A31AA10CDF00C2C98C /* SpellBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpellBook.m; sourceTree = "<group>"; };
+		6A2507A51AA10CDF00C2C98C /* SpellLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpellLibrary.h; sourceTree = "<group>"; };
+		6A2507A61AA10CDF00C2C98C /* SpellLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpellLibrary.m; sourceTree = "<group>"; };
+		6A2507A81AA10D1200C2C98C /* Spell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spell.h; sourceTree = "<group>"; };
+		6A2507A91AA10D1200C2C98C /* Spell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spell.m; sourceTree = "<group>"; };
+		6A2507AB1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_SpellLibraryTableViewController.h; sourceTree = "<group>"; };
+		6A2507AC1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_SpellLibraryTableViewController.m; sourceTree = "<group>"; };
+		6A2507AE1AA12BB500C2C98C /* MM_AddCharacterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_AddCharacterViewController.h; sourceTree = "<group>"; };
+		6A2507AF1AA12BB500C2C98C /* MM_AddCharacterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_AddCharacterViewController.m; sourceTree = "<group>"; };
+		6A2507B21AA152BE00C2C98C /* PlayerCharacter+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PlayerCharacter+Methods.h"; sourceTree = "<group>"; };
+		6A2507B31AA152BE00C2C98C /* PlayerCharacter+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PlayerCharacter+Methods.m"; sourceTree = "<group>"; };
+		6A2507B51AA1546000C2C98C /* CharacterClass+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CharacterClass+Methods.h"; sourceTree = "<group>"; };
+		6A2507B61AA1546000C2C98C /* CharacterClass+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CharacterClass+Methods.m"; sourceTree = "<group>"; };
+		6A2507B81AA1552700C2C98C /* SchoolOfMagic+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SchoolOfMagic+Methods.h"; sourceTree = "<group>"; };
+		6A2507B91AA1552700C2C98C /* SchoolOfMagic+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SchoolOfMagic+Methods.m"; sourceTree = "<group>"; };
+		6A2507BB1AA155C500C2C98C /* SpellBook+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpellBook+Methods.h"; sourceTree = "<group>"; };
+		6A2507BC1AA155C500C2C98C /* SpellBook+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SpellBook+Methods.m"; sourceTree = "<group>"; };
+		6A2507BE1AA156C500C2C98C /* SpellLibrary+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpellLibrary+Methods.h"; sourceTree = "<group>"; };
+		6A2507BF1AA156C500C2C98C /* SpellLibrary+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SpellLibrary+Methods.m"; sourceTree = "<group>"; };
+		6A2507C11AA1578D00C2C98C /* Spell+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Spell+Methods.h"; sourceTree = "<group>"; };
+		6A2507C21AA1578D00C2C98C /* Spell+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Spell+Methods.m"; sourceTree = "<group>"; };
+		6A5136941AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CreateSpellBookViewController.h; sourceTree = "<group>"; };
+		6A5136951AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CreateSpellBookViewController.m; sourceTree = "<group>"; };
+		6A5136971AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_AddSpellToSpellBookTableViewController.h; sourceTree = "<group>"; };
+		6A5136981AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_AddSpellToSpellBookTableViewController.m; sourceTree = "<group>"; };
+		6A51369A1AA24E9B00EF9FEC /* MAIN.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MAIN.Storyboard; sourceTree = "<group>"; };
 		6AA2E2CE1A9A595A00843582 /* Cantrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cantrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA2E2D21A9A595A00843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA2E2D31A9A595A00843582 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,6 +148,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A1ACAD71AA0CB5D002A231F /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				6A2507A81AA10D1200C2C98C /* Spell.h */,
+				6A2507A91AA10D1200C2C98C /* Spell.m */,
+				6A2507A51AA10CDF00C2C98C /* SpellLibrary.h */,
+				6A2507A61AA10CDF00C2C98C /* SpellLibrary.m */,
+				6A2507A21AA10CDF00C2C98C /* SpellBook.h */,
+				6A2507A31AA10CDF00C2C98C /* SpellBook.m */,
+				6A25079C1AA10CDF00C2C98C /* CharacterClass.h */,
+				6A25079D1AA10CDF00C2C98C /* CharacterClass.m */,
+				6A2507991AA10CDF00C2C98C /* SchoolOfMagic.h */,
+				6A25079A1AA10CDF00C2C98C /* SchoolOfMagic.m */,
+				6A2507961AA10CDE00C2C98C /* PlayerCharacter.h */,
+				6A2507971AA10CDE00C2C98C /* PlayerCharacter.m */,
+				6A2507B11AA1523C00C2C98C /* ManagedObjectsCatalogs */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		6A1ACADB1AA0D054002A231F /* Version1 */ = {
+			isa = PBXGroup;
+			children = (
+				6A5136971AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.h */,
+				6A5136981AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m */,
+				6AA2E3061A9A9B8300843582 /* View Controllers */,
+				6AA2E3031A9A928200843582 /* MM_MenuTableViewController.h */,
+				6AA2E3041A9A928200843582 /* MM_MenuTableViewController.m */,
+				6AA2E3001A9A6C3500843582 /* MM_CharacterSheetTableViewController.h */,
+				6AA2E3011A9A6C3500843582 /* MM_CharacterSheetTableViewController.m */,
+				6AA2E3081A9A9C8E00843582 /* MM_BasicInfoTableViewCell.h */,
+				6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */,
+				6AA2E2DE1A9A595B00843582 /* Main.storyboard */,
+				6AA2E2FA1A9A5A3800843582 /* MM_PlayerCharacter.h */,
+				6AA2E2FB1A9A5A3800843582 /* MM_PlayerCharacter.m */,
+				6AA2E3141A9BA6AC00843582 /* Character Property Classes */,
+				6AA2E3111A9BA61500843582 /* MM_AbilityScore.h */,
+				6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */,
+				6AA2E2FD1A9A61F000843582 /* MM_CharacterSkill.h */,
+				6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */,
+				6AA2E30E1A9B7BE600843582 /* MM_SpellSlots.h */,
+				6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */,
+				6AA2E30B1A9B747A00843582 /* MM_Spell.h */,
+				6AA2E30C1A9B747A00843582 /* MM_Spell.m */,
+			);
+			name = Version1;
+			sourceTree = "<group>";
+		};
+		6A2507951AA1082700C2C98C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A1ACADE1AA0E3DF002A231F /* MM_CharacterListTableViewController.h */,
+				6A1ACADF1AA0E3DF002A231F /* MM_CharacterListTableViewController.m */,
+				6A25078C1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.h */,
+				6A25078D1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.m */,
+				6A25078F1AA0F2B900C2C98C /* MM_SpellBookTableViewController.h */,
+				6A2507901AA0F2B900C2C98C /* MM_SpellBookTableViewController.m */,
+				6A2507921AA0F56C00C2C98C /* MM_SpellDetailTableViewController.h */,
+				6A2507931AA0F56C00C2C98C /* MM_SpellDetailTableViewController.m */,
+				6A2507AB1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.h */,
+				6A2507AC1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.m */,
+				6A2507AE1AA12BB500C2C98C /* MM_AddCharacterViewController.h */,
+				6A2507AF1AA12BB500C2C98C /* MM_AddCharacterViewController.m */,
+				6A5136941AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.h */,
+				6A5136951AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6A2507B11AA1523C00C2C98C /* ManagedObjectsCatalogs */ = {
+			isa = PBXGroup;
+			children = (
+				6A2507C11AA1578D00C2C98C /* Spell+Methods.h */,
+				6A2507C21AA1578D00C2C98C /* Spell+Methods.m */,
+				6A2507BE1AA156C500C2C98C /* SpellLibrary+Methods.h */,
+				6A2507BF1AA156C500C2C98C /* SpellLibrary+Methods.m */,
+				6A2507BB1AA155C500C2C98C /* SpellBook+Methods.h */,
+				6A2507BC1AA155C500C2C98C /* SpellBook+Methods.m */,
+				6A2507B51AA1546000C2C98C /* CharacterClass+Methods.h */,
+				6A2507B61AA1546000C2C98C /* CharacterClass+Methods.m */,
+				6A2507B81AA1552700C2C98C /* SchoolOfMagic+Methods.h */,
+				6A2507B91AA1552700C2C98C /* SchoolOfMagic+Methods.m */,
+				6A2507B21AA152BE00C2C98C /* PlayerCharacter+Methods.h */,
+				6A2507B31AA152BE00C2C98C /* PlayerCharacter+Methods.m */,
+			);
+			name = ManagedObjectsCatalogs;
+			sourceTree = "<group>";
+		};
 		6AA2E2C51A9A595A00843582 = {
 			isa = PBXGroup;
 			children = (
@@ -104,18 +257,17 @@
 		6AA2E2D01A9A595A00843582 /* Cantrip */ = {
 			isa = PBXGroup;
 			children = (
+				6A1ACADB1AA0D054002A231F /* Version1 */,
 				6AA2E2D51A9A595A00843582 /* AppDelegate.h */,
 				6AA2E2D61A9A595A00843582 /* AppDelegate.m */,
-				6AA2E3061A9A9B8300843582 /* View Controllers */,
-				6AA2E2DE1A9A595B00843582 /* Main.storyboard */,
-				6AA2E2FA1A9A5A3800843582 /* MM_PlayerCharacter.h */,
-				6AA2E2FB1A9A5A3800843582 /* MM_PlayerCharacter.m */,
-				6AA2E3141A9BA6AC00843582 /* Character Property Classes */,
-				6AA2E30B1A9B747A00843582 /* MM_Spell.h */,
-				6AA2E30C1A9B747A00843582 /* MM_Spell.m */,
+				6A2507951AA1082700C2C98C /* ViewControllers */,
+				6A51369A1AA24E9B00EF9FEC /* MAIN.Storyboard */,
+				6A1ACAD81AA0CEA9002A231F /* MM_StarterSetDataManager.h */,
+				6A1ACAD91AA0CEA9002A231F /* MM_StarterSetDataManager.m */,
 				6AA2E2E11A9A595B00843582 /* Images.xcassets */,
 				6AA2E2E31A9A595B00843582 /* LaunchScreen.xib */,
 				6AA2E2D81A9A595A00843582 /* Cantrip.xcdatamodeld */,
+				6A1ACAD71AA0CB5D002A231F /* ManagedObjects */,
 				6AA2E2D11A9A595A00843582 /* Supporting Files */,
 			);
 			path = Cantrip;
@@ -150,12 +302,6 @@
 		6AA2E3061A9A9B8300843582 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6AA2E3031A9A928200843582 /* MM_MenuTableViewController.h */,
-				6AA2E3041A9A928200843582 /* MM_MenuTableViewController.m */,
-				6AA2E3001A9A6C3500843582 /* MM_CharacterSheetTableViewController.h */,
-				6AA2E3011A9A6C3500843582 /* MM_CharacterSheetTableViewController.m */,
-				6AA2E3081A9A9C8E00843582 /* MM_BasicInfoTableViewCell.h */,
-				6AA2E3091A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -163,12 +309,6 @@
 		6AA2E3141A9BA6AC00843582 /* Character Property Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6AA2E3111A9BA61500843582 /* MM_AbilityScore.h */,
-				6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */,
-				6AA2E2FD1A9A61F000843582 /* MM_CharacterSkill.h */,
-				6AA2E2FE1A9A61F000843582 /* MM_CharacterSkill.m */,
-				6AA2E30E1A9B7BE600843582 /* MM_SpellSlots.h */,
-				6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */,
 			);
 			name = "Character Property Classes";
 			sourceTree = "<group>";
@@ -256,6 +396,7 @@
 				6AA2E2E01A9A595B00843582 /* Main.storyboard in Resources */,
 				6AA2E2E51A9A595B00843582 /* LaunchScreen.xib in Resources */,
 				6AA2E2E21A9A595B00843582 /* Images.xcassets in Resources */,
+				6A51369B1AA24E9B00EF9FEC /* MAIN.Storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,15 +414,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A2507C01AA156C500C2C98C /* SpellLibrary+Methods.m in Sources */,
+				6A25079B1AA10CDF00C2C98C /* SchoolOfMagic.m in Sources */,
+				6A2507B71AA1546000C2C98C /* CharacterClass+Methods.m in Sources */,
 				6AA2E3101A9B7BE600843582 /* MM_SpellSlots.m in Sources */,
+				6A2507AA1AA10D1200C2C98C /* Spell.m in Sources */,
+				6A5136961AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m in Sources */,
+				6A2507BD1AA155C500C2C98C /* SpellBook+Methods.m in Sources */,
 				6AA2E30D1A9B747A00843582 /* MM_Spell.m in Sources */,
 				6AA2E30A1A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m in Sources */,
 				6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */,
+				6A2507AD1AA10F6500C2C98C /* MM_SpellLibraryTableViewController.m in Sources */,
+				6A1ACAE01AA0E3DF002A231F /* MM_CharacterListTableViewController.m in Sources */,
+				6A2507B01AA12BB500C2C98C /* MM_AddCharacterViewController.m in Sources */,
+				6A2507BA1AA1552700C2C98C /* SchoolOfMagic+Methods.m in Sources */,
+				6A2507A71AA10CDF00C2C98C /* SpellLibrary.m in Sources */,
+				6A2507B41AA152BE00C2C98C /* PlayerCharacter+Methods.m in Sources */,
+				6A2507941AA0F56C00C2C98C /* MM_SpellDetailTableViewController.m in Sources */,
 				6AA2E3021A9A6C3500843582 /* MM_CharacterSheetTableViewController.m in Sources */,
+				6A2507C31AA1578D00C2C98C /* Spell+Methods.m in Sources */,
+				6A2507981AA10CDE00C2C98C /* PlayerCharacter.m in Sources */,
+				6A1ACADA1AA0CEA9002A231F /* MM_StarterSetDataManager.m in Sources */,
+				6A2507A41AA10CDF00C2C98C /* SpellBook.m in Sources */,
+				6A25078E1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.m in Sources */,
 				6AA2E2FF1A9A61F000843582 /* MM_CharacterSkill.m in Sources */,
 				6AA2E2D41A9A595A00843582 /* main.m in Sources */,
 				6AA2E3051A9A928200843582 /* MM_MenuTableViewController.m in Sources */,
+				6A2507911AA0F2B900C2C98C /* MM_SpellBookTableViewController.m in Sources */,
 				6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */,
+				6A25079E1AA10CDF00C2C98C /* CharacterClass.m in Sources */,
+				6A5136991AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m in Sources */,
 				6AA2E3131A9BA61500843582 /* MM_AbilityScore.m in Sources */,
 				6AA2E2FC1A9A5A3800843582 /* MM_PlayerCharacter.m in Sources */,
 			);
@@ -474,6 +636,7 @@
 				6AA2E2F61A9A595B00843582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6AA2E2F71A9A595B00843582 /* Build configuration list for PBXNativeTarget "CantripTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +645,7 @@
 				6AA2E2F91A9A595B00843582 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

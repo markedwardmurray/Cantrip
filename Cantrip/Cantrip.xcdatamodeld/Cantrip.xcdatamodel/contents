@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CharacterClass" representedClassName="CharacterClass" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playerCharacters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="characterClass" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="allowedClasses" inverseEntity="Spell" syncable="YES"/>
+    </entity>
+    <entity name="PlayerCharacter" representedClassName="PlayerCharacter" syncable="YES">
+        <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characterClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterClass" inverseName="playerCharacters" inverseEntity="CharacterClass" syncable="YES"/>
+        <relationship name="schoolOfMagic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SchoolOfMagic" inverseName="playerCharacters" inverseEntity="SchoolOfMagic" syncable="YES"/>
+        <relationship name="spellBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpellBook" inverseName="playerCharacter" inverseEntity="SpellBook" syncable="YES"/>
+    </entity>
+    <entity name="SchoolOfMagic" representedClassName="SchoolOfMagic" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playerCharacters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="schoolOfMagic" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="schoolOfMagic" inverseEntity="Spell" syncable="YES"/>
+    </entity>
+    <entity name="Spell" representedClassName="Spell" syncable="YES">
+        <attribute name="castingTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="components" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="range" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="spellDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="allowedClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterClass" inverseName="spells" inverseEntity="CharacterClass" syncable="YES"/>
+        <relationship name="schoolOfMagic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SchoolOfMagic" inverseName="spells" inverseEntity="SchoolOfMagic" syncable="YES"/>
+        <relationship name="spellBooks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpellBook" inverseName="spells" inverseEntity="SpellBook" syncable="YES"/>
+        <relationship name="spellLibraries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SpellLibrary" inverseName="spells" inverseEntity="SpellLibrary" syncable="YES"/>
+    </entity>
+    <entity name="SpellBook" representedClassName="SpellBook" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="spellBook" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="spellBooks" inverseEntity="Spell" syncable="YES"/>
+    </entity>
+    <entity name="SpellLibrary" representedClassName="SpellLibrary" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="spellLibraries" inverseEntity="Spell" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CharacterClass" positionX="-261" positionY="-52" width="128" height="88"/>
+        <element name="PlayerCharacter" positionX="-83" positionY="-198" width="128" height="103"/>
+        <element name="SchoolOfMagic" positionX="-81" positionY="36" width="128" height="88"/>
+        <element name="Spell" positionX="-452" positionY="-51" width="128" height="208"/>
+        <element name="SpellBook" positionX="-450" positionY="-196" width="128" height="88"/>
+        <element name="SpellLibrary" positionX="-684" positionY="-54" width="128" height="73"/>
+    </elements>
 </model>
