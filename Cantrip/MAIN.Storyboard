@@ -170,7 +170,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="J6K-LF-d4T">
+                    <navigationItem key="navigationItem" id="J6K-LF-d4T">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="add" id="cBo-8X-qaJ">
                             <connections>
                                 <segue destination="ilO-ow-cvp" kind="show" identifier="segueToAddSpellBook" id="khd-iN-csj"/>
@@ -280,7 +280,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="FqC-Jz-I0r">
+                    <navigationItem key="navigationItem" id="FqC-Jz-I0r">
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="eN7-Ff-hOL">
                             <connections>
                                 <segue destination="Tzl-8B-SJw" kind="show" identifier="segueSpellBookToLibrary" id="Ect-ku-2Cv"/>
@@ -293,14 +293,23 @@
             </objects>
             <point key="canvasLocation" x="2924" y="477"/>
         </scene>
-        <!--Spell Library Table View Controller-->
+        <!--Spell Library TVC-->
         <scene sceneID="730-jg-aZ2">
             <objects>
-                <tableViewController id="Tzl-8B-SJw" customClass="MM_SpellLibraryTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Spell Library TVC" id="Tzl-8B-SJw" customClass="MM_SpellLibraryTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dz5-29-mmt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="MgA-dn-D0d">
+                            <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Level"/>
+                                <segment title="School"/>
+                                <segment title="Name"/>
+                            </segments>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="spellCell" textLabel="WGp-N5-kOR" detailTextLabel="J3l-y7-6cY" style="IBUITableViewCellStyleSubtitle" id="ELj-CS-jB0">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -313,7 +322,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J3l-y7-6cY">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J3l-y7-6cY">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -331,6 +340,16 @@
                             <outlet property="delegate" destination="Tzl-8B-SJw" id="rdn-lh-tax"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="DjF-IL-2GM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="AXq-Ii-gWW">
+                            <connections>
+                                <action selector="refreshTapped:" destination="Tzl-8B-SJw" id="ErA-Tj-cOf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedSortSelector" destination="MgA-dn-D0d" id="cBg-en-bWy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmF-qd-o4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -405,7 +424,7 @@
                             <outlet property="delegate" destination="STV-V6-nQ5" id="F9M-Rk-UHi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="AnS-CJ-tZu">
+                    <navigationItem key="navigationItem" id="AnS-CJ-tZu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vOz-7N-37q">
                             <connections>
                                 <action selector="addTapped:" destination="STV-V6-nQ5" id="jgv-fq-t5G"/>
@@ -440,7 +459,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ect-ku-2Cv"/>
+        <segue reference="grM-tl-nNI"/>
         <segue reference="xOm-dK-e8L"/>
     </inferredMetricsTieBreakers>
 </document>

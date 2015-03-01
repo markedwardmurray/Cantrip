@@ -54,7 +54,8 @@
     NSInteger characterClassIndex = [self.characterClassSelector selectedSegmentIndex];
     CharacterClass *selectedCharacterClass = self.starterSetDataManager.characterClassesArray[characterClassIndex];
     
-    PlayerCharacter *newPlayerCharacter = [PlayerCharacter
+//    PlayerCharacter *newPlayerCharacter =
+    [PlayerCharacter
         createPlayerCharacterWithContext:self.starterSetDataManager.managedObjectContext
                            characterName:newCharacterName
                           characterClass:selectedCharacterClass];

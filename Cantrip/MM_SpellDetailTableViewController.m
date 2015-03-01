@@ -131,6 +131,10 @@
     
 }
 
+- (void)removeSpellTapped:(id)sender {
+        
+}
+    
 - (IBAction)addTapped:(id)sender {
     if (![self.relevantSpellBook.spells containsObject:self.spell]) {
         NSString *alertMessage =

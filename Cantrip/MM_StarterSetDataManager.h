@@ -20,8 +20,10 @@
 @property (strong, nonatomic) NSArray *schoolsOfMagicArray;
 @property (strong, nonatomic) NSArray *allSpellsArray;
 
-@property (strong, nonatomic) NSSortDescriptor *characterNameDescSortDescriptor;
-@property (strong, nonatomic) NSSortDescriptor *nameDescSortDescriptor;
+@property (strong, nonatomic) NSSortDescriptor *sortByCharacterNameAsc;
+@property (strong, nonatomic) NSSortDescriptor *sortByNameAsc;
+@property (strong, nonatomic) NSSortDescriptor *sortByLevelAsc;
+@property (strong, nonatomic) NSSortDescriptor *sortBySchoolOfMagicAsc;
 
 + (instancetype)sharedStarterSetDataManager;
 

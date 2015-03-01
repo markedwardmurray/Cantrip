@@ -46,14 +46,10 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return [self.starterSetDataManager.playerCharactersArray count];
 }
 
@@ -64,7 +60,9 @@
     PlayerCharacter *currentPlayerCharacter = self.starterSetDataManager.playerCharactersArray[indexPath.row];
     
     cell.textLabel.text = currentPlayerCharacter.characterName;
-    cell.detailTextLabel.text = currentPlayerCharacter.characterClass.name;
+    
+    NSString *detailText = [NSString stringWithFormat:@"  %@", currentPlayerCharacter.characterClass.name];
+    cell.detailTextLabel.text = detailText;
     
     return cell;
 }
@@ -117,11 +115,12 @@
         characterDTVC.playerCharacter = self.starterSetDataManager.playerCharactersArray[indexPath.row];
     }
     else if ([segue.identifier isEqualToString:@"segueToAddCharacter"]) {
-        //no action
+        // defined in MAIN.Storyboard
     }
     else {
         MM_SpellLibraryTableViewController *spellLibraryTVC = segue.destinationViewController;
         spellLibraryTVC.spellLibrary = self.starterSetDataManager.spellLibrariesArray[0]; //only displays the first library, for now
+        self.navigationItem.title = @"All Spells";
     }
 }
 

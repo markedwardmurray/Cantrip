@@ -17,6 +17,9 @@
 
 @interface MM_SpellBookTableViewController ()
 
+@property (strong, nonatomic) NSArray *spellsBySection;
+@property (strong, nonatomic) NSMutableArray *sectionIndexTitles;
+
 @end
 
 @implementation MM_SpellBookTableViewController
@@ -29,15 +32,40 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.starterSetDataManager = [MM_StarterSetDataManager sharedStarterSetDataManager];
-    self.spellsArray = [self.spellBook.spells allObjects];
+    self.sectionIndexTitles = [[NSMutableArray alloc]init];
+    
     self.navigationItem.title = self.spellBook.name;
     self.navigationItem.prompt = self.spellBook.playerCharacter.characterName;
+}
+
+- (void)organizeSpellsByLevelIntoSectionsArray
+{
+    NSMutableArray *spellsByLevel = [[NSMutableArray alloc]init];
+    NSSortDescriptor *sortByNameAsc = self.starterSetDataManager.sortByNameAsc;
+    
+    for (NSInteger i=0; i<=9; i++) {
+        NSArray *spellsOfCurrentLevel = [self predicateAllSpellsByLevelInt:i];
+        NSArray *spellsOfCurrentLevelByName = [spellsOfCurrentLevel sortedArrayUsingDescriptors:@[sortByNameAsc]];
+        [spellsByLevel addObject:spellsOfCurrentLevelByName];
+    }
+    self.spellsBySection = [NSArray arrayWithArray:spellsByLevel];
+}
+
+- (NSArray *)predicateAllSpellsByLevelInt:(NSInteger )levelInt
+{
+    NSNumber *level = @(levelInt);
+    NSPredicate *currentPredicate = [NSPredicate predicateWithFormat:@"SELF.level == %@", level];
+    NSArray *predicatedSpells = [self.spellsArray filteredArrayUsingPredicate:currentPredicate];
+    return predicatedSpells;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.spellsArray = [self.spellBook.spells allObjects];
+    [self organizeSpellsByLevelIntoSectionsArray];
+    [self.sectionIndexTitles removeAllObjects];
     [self.tableView reloadData];
 }
 
@@ -49,23 +77,48 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+    return [self.spellsBySection count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return [self.spellsArray count];
+    return [self.spellsBySection[section] count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (![self.spellsBySection[section] isEqual:@[]]) {
+        [self.sectionIndexTitles addObject:[NSString stringWithFormat:@"%li",section]];
+        if (section == 0) {
+            return @"Cantrips";
+        } else {
+            return [NSString stringWithFormat:@"Level %li Spells", section];
+        }
+    }
+    return nil;
+}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    NSSortDescriptor *sortByAsc = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
+    NSArray *sortedIndexTitles = [self.sectionIndexTitles sortedArrayUsingDescriptors:@[sortByAsc]];
+    self.sectionIndexTitles = [sortedIndexTitles mutableCopy];
+    if ([[self.sectionIndexTitles firstObject] isEqualToString:@"0"]) {
+        [self.sectionIndexTitles replaceObjectAtIndex:0 withObject:@"C"];
+    }
+    return self.sectionIndexTitles;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView
+                                        sectionForSectionIndexTitle:(NSString *)title
+                                                            atIndex:(NSInteger)index {
+    return [self.sectionIndexTitles indexOfObject:title];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+                                        cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"spellCell" forIndexPath:indexPath];
-    Spell *currentSpell = self.spellsArray[indexPath.row];
+    NSArray *currentSpellSection = self.spellsBySection[indexPath.section];
+    Spell *currentSpell = currentSpellSection[indexPath.row];
     cell.textLabel.text = currentSpell.name;
-    NSString *detailText = [NSString stringWithFormat:@"Level %@ %@ spell", currentSpell.level, currentSpell.schoolOfMagic.name];
+    NSString *detailText = [NSString stringWithFormat:@"  Level %@ %@ spell", currentSpell.level, currentSpell.schoolOfMagic.name];
     cell.detailTextLabel.text = detailText;
     
     return cell;
@@ -126,6 +179,8 @@
         MM_SpellLibraryTableViewController *spellLibraryTVC = segue.destinationViewController;
         spellLibraryTVC.spellLibrary = self.starterSetDataManager.spellLibrariesArray[0];
         spellLibraryTVC.relevantSpellBook = self.spellBook;
+        spellLibraryTVC.navigationItem.title = @"Available Spells";
+        spellLibraryTVC.navigationItem.prompt = self.spellBook.name;
     }
 }
 
