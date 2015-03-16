@@ -169,7 +169,8 @@
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         MM_SpellDetailTableViewController *spellDTVC = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Spell *selectedSpell = self.spellsArray[indexPath.row];
+        NSArray *selectedSpellSection = self.spellsBySection[indexPath.section];
+        Spell *selectedSpell = selectedSpellSection[indexPath.row];
         spellDTVC.spell = selectedSpell;
         spellDTVC.navigationItem.title = selectedSpell.name;
         NSString *newPrompt = [NSString stringWithFormat:@"%@ - %@", self.navigationItem.prompt, self.navigationItem.title];

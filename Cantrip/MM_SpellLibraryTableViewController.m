@@ -21,9 +21,9 @@
 @property (strong, nonatomic) NSMutableArray *spellsArray;
 @property (strong, nonatomic) NSArray *spellsBySection;
 @property (strong, nonatomic) NSMutableArray *sectionIndexTitles;
+@property (strong, nonatomic) NSMutableArray *sectionHeaderTitles;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedSortSelector;
-- (IBAction)refreshTapped:(id)sender;
 
 @end
 
@@ -39,17 +39,19 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.starterSetDataManager = [MM_StarterSetDataManager sharedStarterSetDataManager];
+    
+    if (self.sectionIndexTitles == nil) {
+        self.sectionIndexTitles = [[NSMutableArray alloc]init];
+    }
+    if (self.sectionHeaderTitles == nil) {
+        self.sectionHeaderTitles = [[NSMutableArray alloc]init];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if (self.sectionIndexTitles == nil) {
-        self.sectionIndexTitles = [[NSMutableArray alloc]init];
-    }
     [self filterSpellsArray];
-    [self organizeSpellsByLevelIntoSectionsArray];
-    [self.sectionIndexTitles removeAllObjects];
-    [self.tableView reloadData];
+    [self segmentChangeAction:self];
 }
 
 - (void)filterSpellsArray
@@ -68,8 +70,6 @@
     }
 }
 
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -81,12 +81,6 @@
 }
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    NSSortDescriptor *sortByAsc = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
-    NSArray *sortedIndexTitles = [self.sectionIndexTitles sortedArrayUsingDescriptors:@[sortByAsc]];
-    self.sectionIndexTitles = [sortedIndexTitles mutableCopy];
-    if ([[self.sectionIndexTitles firstObject] isEqualToString:@"0"]) {
-        [self.sectionIndexTitles replaceObjectAtIndex:0 withObject:@"C"];
-    }
     return self.sectionIndexTitles;
 }
 
@@ -98,31 +92,8 @@
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    NSString *letterForSection;
-    switch ([self.segmentedSortSelector selectedSegmentIndex]) {
-        case 0:
-            if (![self.spellsBySection[section] isEqual:@[]]) {
-                [self.sectionIndexTitles addObject:[NSString stringWithFormat:@"%li", section]];
-                if (section == 0) {
-                    return @"Cantrips";
-                } else {
-                    return [NSString stringWithFormat:@"Level %li Spells", section];
-                }
-            } else {
-                return nil;
-            }
-            break;
-        case 1:
-            // not yet defined
-            break;
-        case 2:
-            letterForSection = self.sectionIndexTitles[section];
-            return letterForSection;
-        default:
-            return nil;
-            break;
-    }
-    return nil;
+    
+    return self.sectionHeaderTitles[section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -174,6 +145,99 @@
 */
 
 
+#pragma mark - Segmented Control Refresh
+
+- (IBAction)segmentChangeAction:(id)sender {
+    [self.sectionHeaderTitles removeAllObjects];
+    [self.sectionIndexTitles removeAllObjects];
+    NSInteger selectedSegmentInt = [self.segmentedSortSelector selectedSegmentIndex];
+    if (selectedSegmentInt == 0) {
+        [self organizeSpellsByLevelIntoSectionsArray];
+    }
+    else if (selectedSegmentInt == 1) {
+        [self organizeSpellsBySchoolNameIntoSectionsArray];
+    }
+    else if (selectedSegmentInt == 2) {
+        [self organizeSpellsByNameIntoSectionsArray];
+    }
+    else {
+        NSLog(@"Segmented Control Error");
+    }
+    [self.tableView reloadData];
+}
+
+- (void)organizeSpellsByLevelIntoSectionsArray
+{
+    NSMutableArray *spellsByLevel = [[NSMutableArray alloc]init];
+    
+    for (NSInteger i=0; i<=9; i++) {
+        NSPredicate *levelPredicate = [NSPredicate predicateWithFormat:@"SELF.level == %li", i];
+        NSArray *spellsOfCurrentLevel = [self.spellsArray filteredArrayUsingPredicate:levelPredicate];
+        NSArray *spellsOfCurrentLevelByName = [spellsOfCurrentLevel
+                sortedArrayUsingDescriptors:@[self.starterSetDataManager.sortByNameAsc]];
+        
+        if (![spellsOfCurrentLevelByName isEqual:@[]]) {
+            NSString *sectionHeaderString;
+            NSString *sectionIndexString;
+            
+            if (i == 0) {
+                sectionHeaderString = @"Cantrips";
+                sectionIndexString = @"C";
+            } else {
+                sectionHeaderString = [NSString stringWithFormat:@"Level %li Spells", i];
+                sectionIndexString = [NSString stringWithFormat:@"%li", i];
+            }
+            [self.sectionHeaderTitles addObject:sectionHeaderString];
+            [self.sectionIndexTitles addObject:sectionIndexString];
+            [spellsByLevel addObject:spellsOfCurrentLevelByName];
+        }
+    }
+    self.spellsBySection = [NSArray arrayWithArray:spellsByLevel];
+}
+
+- (void)organizeSpellsBySchoolNameIntoSectionsArray {
+    NSMutableArray *spellsBySchoolName = [[NSMutableArray alloc]init];
+    NSArray *schoolsOfMagicNames = self.starterSetDataManager.schoolsOfMagicNamesArray;
+    
+    for (NSString *schoolName in schoolsOfMagicNames) {
+        NSPredicate *schoolNamePredicate = [NSPredicate predicateWithFormat:@"SELF.schoolName CONTAINS[cd] %@", schoolName];
+        NSArray *spellsOfCurrentSchoolName = [self.spellsArray filteredArrayUsingPredicate:schoolNamePredicate];
+        NSArray *spellsOfCurrentSchoolNameByLevelByName = [spellsOfCurrentSchoolName
+                sortedArrayUsingDescriptors:@[self.starterSetDataManager.sortByLevelAsc,
+                                              self.starterSetDataManager.sortByNameAsc]];
+        
+        if (![spellsOfCurrentSchoolNameByLevelByName isEqual:@[]]) {
+            [self.sectionHeaderTitles addObject:schoolName];
+            NSString *schoolTicker = [schoolName substringToIndex:3];
+            [self.sectionIndexTitles addObject:schoolTicker];
+            [spellsBySchoolName addObject:spellsOfCurrentSchoolNameByLevelByName];
+        }
+    }
+    self.spellsBySection = [NSArray arrayWithArray:spellsBySchoolName];
+}
+
+- (void)organizeSpellsByNameIntoSectionsArray {
+    NSMutableArray *spellsByName = [[NSMutableArray alloc]init];
+    NSArray *alphabetArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I",
+                               @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R",
+                               @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
+    
+    for (NSString *currentLetter in alphabetArray) {
+        NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH %@", currentLetter];
+        NSArray *spellsOfCurrentLetter = [self.spellsArray filteredArrayUsingPredicate:namePredicate];
+        NSArray *spellsOfCurrentLetterByNameByLevel = [spellsOfCurrentLetter
+                sortedArrayUsingDescriptors:@[self.starterSetDataManager.sortByNameAsc,
+                                              self.starterSetDataManager.sortByLevelAsc]];
+        
+        if (![spellsOfCurrentLetterByNameByLevel isEqual:@[]]) {
+            [self.sectionHeaderTitles addObject:currentLetter];
+            [self.sectionIndexTitles addObject:currentLetter];
+            [spellsByName addObject:spellsOfCurrentLetterByNameByLevel];
+        }
+    }
+    self.spellsBySection = [NSArray arrayWithArray:spellsByName];
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -185,68 +249,6 @@
     spellDTVC.navigationItem.title = selectedSpell.name;
     spellDTVC.navigationItem.prompt = self.navigationItem.title;
     spellDTVC.relevantSpellBook = self.relevantSpellBook;
-}
-
-#pragma mark - Segmented Control Refresh
-
-- (IBAction)refreshTapped:(id)sender {
-    [self.sectionIndexTitles removeAllObjects];
-    NSInteger selectedSegmentInt = [self.segmentedSortSelector selectedSegmentIndex];
-    if (selectedSegmentInt == 0) {
-        [self organizeSpellsByLevelIntoSectionsArray];
-        NSLog(@"sort by level");
-    }
-    else if (selectedSegmentInt == 1) {
-        NSLog(@"sort by school");
-    }
-    else if (selectedSegmentInt == 2) {
-        [self organizeSpellsByNameIntoSectionsArray];
-        NSLog(@"sort by name");
-    }
-    [self.tableView reloadData];
-}
-
-- (void)organizeSpellsByLevelIntoSectionsArray
-{
-    NSMutableArray *spellsByLevel = [[NSMutableArray alloc]init];
-    NSSortDescriptor *sortByNameAsc = self.starterSetDataManager.sortByNameAsc;
-    
-    for (NSInteger i=0; i<=9; i++) {
-        NSArray *spellsOfCurrentLevel = [self predicateAllSpellsByLevelInt:i];
-        NSArray *spellsOfCurrentLevelByName = [spellsOfCurrentLevel sortedArrayUsingDescriptors:@[sortByNameAsc]];
-        [spellsByLevel addObject:spellsOfCurrentLevelByName];
-    }
-    self.spellsBySection = [NSArray arrayWithArray:spellsByLevel];
-}
-
-- (NSArray *)predicateAllSpellsByLevelInt:(NSInteger)levelInt
-{
-    NSNumber *level = @(levelInt);
-    NSPredicate *currentPredicate = [NSPredicate predicateWithFormat:@"SELF.level == %@", level];
-    NSArray *predicatedSpells = [self.spellsArray filteredArrayUsingPredicate:currentPredicate];
-    return predicatedSpells;
-}
-
-- (void)organizeSpellsByNameIntoSectionsArray {
-    NSMutableArray *spellsByName = [[NSMutableArray alloc]init];
-    NSSortDescriptor *sortByNameAsc = self.starterSetDataManager.sortByNameAsc;
-    NSSortDescriptor *sortByLevelAsc = self.starterSetDataManager.sortByLevelAsc;
-    NSArray *alphabetArray = @[@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", @"W", @"X", @"Y", @"Z"];
-    for (NSString *currentLetter in alphabetArray) {
-        NSArray *spellsOfCurrentLetter = [self predicateAllSpellsByNameWithFirstLetter:currentLetter];
-        NSArray *spellsOfCurrentLetterByNameByLevel = [spellsOfCurrentLetter sortedArrayUsingDescriptors:@[sortByNameAsc, sortByLevelAsc]];
-        if (![spellsOfCurrentLetterByNameByLevel isEqual:@[]]) {
-            [self.sectionIndexTitles addObject:currentLetter];
-            [spellsByName addObject:spellsOfCurrentLetterByNameByLevel];
-        }
-    }
-    self.spellsBySection = [NSArray arrayWithArray:spellsByName];
-}
-
-- (NSArray *)predicateAllSpellsByNameWithFirstLetter:(NSString *)letter {
-    NSPredicate *letterPredicate = [NSPredicate predicateWithFormat:@"SELF.name BEGINSWITH %@", letter];
-    NSArray *predicatedSpells = [self.spellsArray filteredArrayUsingPredicate:letterPredicate];
-    return predicatedSpells;
 }
 
 @end

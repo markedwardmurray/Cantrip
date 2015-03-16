@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Cantrip/MM_SpellLibraryTableViewController.m"
-            timestampString = "446887133.963049"
+            timestampString = "447106870.779039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "-refreshTapped:"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "-organizeSpellsBySchoolNameIntoSectionsArray"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

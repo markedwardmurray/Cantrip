@@ -7,6 +7,7 @@
 //
 
 #import "Spell+Methods.h"
+#import "SchoolOfMagic.h"
 
 @implementation Spell (Methods)
 
@@ -38,6 +39,8 @@
     newSpell.components = components;
     newSpell.duration = duration;
     newSpell.spellDescription = spellDescription;
+    
+    newSpell.schoolName = schoolOfMagic.name;
     
     return newSpell;
 }

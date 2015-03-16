@@ -2,7 +2,7 @@
 //  Spell.m
 //  Cantrip
 //
-//  Created by Mark Murray on 2/27/15.
+//  Created by Mark Murray on 3/1/15.
 //  Copyright (c) 2015 Mark Edward Murray. All rights reserved.
 //
 
@@ -22,6 +22,7 @@
 @dynamic name;
 @dynamic range;
 @dynamic spellDescription;
+@dynamic schoolName;
 @dynamic allowedClasses;
 @dynamic schoolOfMagic;
 @dynamic spellBooks;

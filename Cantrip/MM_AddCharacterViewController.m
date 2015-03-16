@@ -12,10 +12,12 @@
 #import "PlayerCharacter+Methods.h"
 
 @interface MM_AddCharacterViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *createCharacterLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField *characterNameTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *characterClassSelector;
 
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
 
 - (IBAction)cancelTapped:(id)sender;
 - (IBAction)createTapped:(id)sender;
@@ -28,11 +30,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.starterSetDataManager = [MM_StarterSetDataManager sharedStarterSetDataManager];
-}
+    
+ }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 /*

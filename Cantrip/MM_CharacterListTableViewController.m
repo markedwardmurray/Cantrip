@@ -120,7 +120,7 @@
     else {
         MM_SpellLibraryTableViewController *spellLibraryTVC = segue.destinationViewController;
         spellLibraryTVC.spellLibrary = self.starterSetDataManager.spellLibrariesArray[0]; //only displays the first library, for now
-        self.navigationItem.title = @"All Spells";
+        spellLibraryTVC.navigationItem.title = @"All Spells";
     }
 }
 

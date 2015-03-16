@@ -65,6 +65,8 @@
                                                                 ascending:YES];
     self.sortByLevelAsc = [NSSortDescriptor sortDescriptorWithKey:@"level"
                                                         ascending:YES];
+    self.sortBySchoolNameAsc = [NSSortDescriptor sortDescriptorWithKey:@"schoolName"
+                                                             ascending:YES];
 }
 
 - (void)fetchData
@@ -87,6 +89,12 @@
     NSFetchRequest *schoolsOfMagicRequest = [NSFetchRequest fetchRequestWithEntityName:@"SchoolOfMagic"];
     schoolsOfMagicRequest.sortDescriptors = @[self.sortByNameAsc];
     self.schoolsOfMagicArray = [self.managedObjectContext executeFetchRequest:schoolsOfMagicRequest error:nil];
+    
+    NSMutableArray *schoolNamesMutable = [[NSMutableArray alloc]init];
+    for (SchoolOfMagic *currentSchool in self.schoolsOfMagicArray) {
+        [schoolNamesMutable addObject:currentSchool.name];
+    }
+    self.schoolsOfMagicNamesArray = [NSArray arrayWithArray:schoolNamesMutable];
     
     NSFetchRequest *allSpellsRequest = [NSFetchRequest fetchRequestWithEntityName:@"Spell"];
     allSpellsRequest.sortDescriptors = @[self.sortByNameAsc];

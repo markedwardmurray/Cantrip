@@ -23,6 +23,7 @@
         <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="range" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="schoolName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="spellDescription" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="allowedClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterClass" inverseName="spells" inverseEntity="CharacterClass" syncable="YES"/>
         <relationship name="schoolOfMagic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SchoolOfMagic" inverseName="spells" inverseEntity="SchoolOfMagic" syncable="YES"/>
@@ -42,7 +43,7 @@
         <element name="CharacterClass" positionX="-261" positionY="-52" width="128" height="88"/>
         <element name="PlayerCharacter" positionX="-83" positionY="-198" width="128" height="103"/>
         <element name="SchoolOfMagic" positionX="-81" positionY="36" width="128" height="88"/>
-        <element name="Spell" positionX="-452" positionY="-51" width="128" height="208"/>
+        <element name="Spell" positionX="-452" positionY="-51" width="128" height="225"/>
         <element name="SpellBook" positionX="-450" positionY="-196" width="128" height="88"/>
         <element name="SpellLibrary" positionX="-684" positionY="-54" width="128" height="73"/>
     </elements>
