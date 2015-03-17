@@ -1,5 +1,5 @@
 //
-//  MM_AddCharacterViewController.h
+//  MM_NewCharacterViewController.h
 //  Cantrip
 //
 //  Created by Mark Murray on 2/27/15.
@@ -10,7 +10,7 @@
 
 @class MM_StarterSetDataManager;
 
-@interface MM_AddCharacterViewController : UIViewController
+@interface MM_NewCharacterViewController : UIViewController
 
 @property (strong, nonatomic) MM_StarterSetDataManager *starterSetDataManager;
 

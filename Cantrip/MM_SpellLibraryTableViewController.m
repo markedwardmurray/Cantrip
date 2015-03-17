@@ -11,6 +11,7 @@
 #import "MM_StarterSetDataManager.h"
 #import "PlayerCharacter.h"
 #import "CharacterClass.h"
+#import "ChosenClass.h"
 #import "SchoolOfMagic.h"
 #import "SpellLibrary.h"
 #import "SpellBook.h"

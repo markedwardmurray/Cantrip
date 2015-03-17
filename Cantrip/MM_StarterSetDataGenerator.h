@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @class MM_StarterSetDataManager;
+@class Publication;
 
 @interface MM_StarterSetDataGenerator : NSObject
 
 @property (strong, nonatomic) MM_StarterSetDataManager *starterSetDataManager;
+@property (strong, nonatomic) Publication *publication;
 
+- (void)generatePublication;
+- (void)generateCharacterRaces;
 - (void)generateCharacterClasses;
 - (void)generateSchoolsOfMagic;
 - (void)generateStarterSetSpellLibrary;

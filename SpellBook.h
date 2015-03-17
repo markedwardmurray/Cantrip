@@ -1,8 +1,8 @@
 //
-//  CharacterClass.h
+//  SpellBook.h
 //  Cantrip
 //
-//  Created by Mark Murray on 2/27/15.
+//  Created by Mark Murray on 3/16/15.
 //  Copyright (c) 2015 Mark Edward Murray. All rights reserved.
 //
 
@@ -11,19 +11,14 @@
 
 @class PlayerCharacter, Spell;
 
-@interface CharacterClass : NSManagedObject
+@interface SpellBook : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet *playerCharacters;
+@property (nonatomic, retain) PlayerCharacter *playerCharacter;
 @property (nonatomic, retain) NSSet *spells;
 @end
 
-@interface CharacterClass (CoreDataGeneratedAccessors)
-
-- (void)addPlayerCharactersObject:(PlayerCharacter *)value;
-- (void)removePlayerCharactersObject:(PlayerCharacter *)value;
-- (void)addPlayerCharacters:(NSSet *)values;
-- (void)removePlayerCharacters:(NSSet *)values;
+@interface SpellBook (CoreDataGeneratedAccessors)
 
 - (void)addSpellsObject:(Spell *)value;
 - (void)removeSpellsObject:(Spell *)value;

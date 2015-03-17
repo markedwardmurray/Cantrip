@@ -8,17 +8,14 @@
 
 #import "MM_StarterSetDataGenerator.h"
 #import "MM_StarterSetDataManager.h"
-#import "PlayerCharacter.h"
+#import "GameSystem.h"
+#import "Publication.h"
+#import "CharacterRace+Methods.h"
 #import "PlayerCharacter+Methods.h"
-#import "CharacterClass.h"
 #import "CharacterClass+Methods.h"
-#import "Spell.h"
 #import "Spell+Methods.h"
-#import "SpellBook.h"
 #import "SpellBook+Methods.h"
-#import "SchoolOfMagic.h"
 #import "SchoolOfMagic+Methods.h"
-#import "SpellLibrary.h"
 #import "SpellLibrary+Methods.h"
 
 @interface MM_StarterSetDataGenerator ()
@@ -38,42 +35,83 @@
     return self;
 }
 
-- (void)generateCharacterClasses
-{
-    CharacterClass *cleric = [CharacterClass createCharacterClassWithContext:self.managedObjectContext
-                                                                        name:@"Cleric"];
-    CharacterClass *wizard = [CharacterClass createCharacterClassWithContext:self.managedObjectContext
-                                                                        name:@"Wizard"];
-    self.starterSetDataManager.characterClassesArray = @[cleric, wizard];
+- (void)generatePublication {
+    Publication *dnd5EStarterSet = [NSEntityDescription insertNewObjectForEntityForName:@"Publication" inManagedObjectContext:self.managedObjectContext];
+    dnd5EStarterSet.name = @"Starter Set, D&D 5th Edition";
+    [dnd5EStarterSet setGameSystem:self.starterSetDataManager.gameSystems[0]];
+    self.publication = dnd5EStarterSet;
+    
+    [self generateCharacterRaces];
+    [self generateCharacterClasses];
+    [self generateSchoolsOfMagic];
     
     [self.starterSetDataManager saveContext];
     [self.starterSetDataManager fetchData];
 }
 
+- (void)generateCharacterRaces {
+    [CharacterRace createCharacterRaceWithContext:self.managedObjectContext
+                                             name:@"Dwarf"
+                                      publication:self.publication
+                                      information:@"dwarves"];
+    
+    [CharacterRace createCharacterRaceWithContext:self.managedObjectContext
+                                             name:@"Elf"
+                                      publication:self.publication
+                                      information:@"elves"];
+    
+    [CharacterRace createCharacterRaceWithContext:self.managedObjectContext
+                                             name:@"Halfling"
+                                      publication:self.publication
+                                      information:@"halflings"];
+    
+    [CharacterRace createCharacterRaceWithContext:self.managedObjectContext
+                                             name:@"Human"
+                                      publication:self.publication
+                                      information:@"humans"];
+    
+    [self.starterSetDataManager saveContext];
+}
+
+- (void)generateCharacterClasses
+{
+    [CharacterClass createCharacterClassWithContext:self.managedObjectContext
+                                               name:@"Cleric"
+                                        publication:self.publication];
+    
+    [CharacterClass createCharacterClassWithContext:self.managedObjectContext
+                                               name:@"Fighter"
+                                        publication:self.publication];
+    
+    [CharacterClass createCharacterClassWithContext:self.managedObjectContext
+                                               name:@"Rogue"
+                                        publication:self.publication];
+    
+    [CharacterClass createCharacterClassWithContext:self.managedObjectContext
+                                               name:@"Wizard"
+                                        publication:self.publication];
+    
+    [self.starterSetDataManager saveContext];
+}
+
 - (void)generateSchoolsOfMagic
 {
-    SchoolOfMagic *abjuration = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                         name:@"Abjuration"];
-    SchoolOfMagic *conjuration = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                          name:@"Conjuration"];
-    SchoolOfMagic *divination = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                         name:@"Divination"];
-    SchoolOfMagic *enchantment = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                          name:@"Enchantment"];
-    SchoolOfMagic *evocation = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                        name:@"Evocation"];
-    SchoolOfMagic *illusion = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                       name:@"Illusion"];
-    SchoolOfMagic *necromancy = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                         name:@"Necromancy"];
-    SchoolOfMagic *transmutation = [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
-                                                                            name:@"Transmutation"];
-    self.starterSetDataManager.schoolsOfMagicArray = @[abjuration, conjuration, divination, enchantment,
-                                 evocation, illusion, necromancy, transmutation];
-    
-    self.starterSetDataManager.schoolsOfMagicNamesArray = @[abjuration.name, conjuration.name, divination.name,
-                                                            enchantment.name, evocation.name, illusion.name,
-                                                            necromancy.name, transmutation.name];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Abjuration"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Conjuration"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Divination"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Enchantment"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Evocation"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Illusion"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Necromancy"];
+    [SchoolOfMagic createSchoolOfMagicWithContext:self.managedObjectContext
+                                             name:@"Transmutation"];
     
     [self.starterSetDataManager saveContext];
     [self.starterSetDataManager fetchData];
@@ -83,11 +121,14 @@
 
 - (void)generateStarterSetSpellLibrary
 {
-    SpellLibrary *starterSetSpellLibrary = [SpellLibrary createSpellLibraryWithContext:self.managedObjectContext
-                                                                                  name:@"D&D 5e Starter Set Spells"];
+
+    SpellLibrary *starterSetSpellLibrary =
+            [SpellLibrary createSpellLibraryWithContext:self.managedObjectContext
+                                                   name:@"D&D 5e Starter Set Spells"
+                                            publication:self.publication];
     
     CharacterClass *cleric = self.starterSetDataManager.characterClassesArray[0];
-    CharacterClass *wizard = self.starterSetDataManager.characterClassesArray[1];
+    CharacterClass *wizard = self.starterSetDataManager.characterClassesArray[3];
     
     SchoolOfMagic *abjuration = self.starterSetDataManager.schoolsOfMagicArray[0];
     SchoolOfMagic *conjuration = self.starterSetDataManager.schoolsOfMagicArray[1];
@@ -1674,7 +1715,6 @@
                  spellDescription:@"This spell creates an invisible, mindless, shapeless force that perfroms simple tasks at your command until the spell ends. The servant springs into existence in an unoccupied space on the ground within range. It has AC 10, 1 hit point, and a Strength of 2, and it can't attack. If it drop to 0 hit points, the spell ends.\n    Once on each of your turns as a bonus action, you can mentally command the servant to move up to 15 feet and interact with an object. The servant can perform simple tasks that a human servant could do, such as fetching things, cleaning, mending, folding clothes, lighting fires, serving food, and pouring wine. Once you give the command, the servant performs the task to the best of its ability until it completes the task, then waits for your next command.\n    If you command the servant to perform a task that would move it more than 60 feet away from you, the spell ends."];
     
     [self.starterSetDataManager saveContext];
-    [self.starterSetDataManager fetchData];
 }
 
 

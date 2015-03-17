@@ -1,33 +1,29 @@
 //
-//  SchoolOfMagic.h
+//  CharacterRace.h
 //  Cantrip
 //
-//  Created by Mark Murray on 2/27/15.
+//  Created by Mark Murray on 3/16/15.
 //  Copyright (c) 2015 Mark Edward Murray. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class PlayerCharacter, Spell;
+@class PlayerCharacter, Publication;
 
-@interface SchoolOfMagic : NSManagedObject
+@interface CharacterRace : NSManagedObject
 
+@property (nonatomic, retain) NSString * information;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *playerCharacters;
-@property (nonatomic, retain) NSSet *spells;
+@property (nonatomic, retain) Publication *publication;
 @end
 
-@interface SchoolOfMagic (CoreDataGeneratedAccessors)
+@interface CharacterRace (CoreDataGeneratedAccessors)
 
 - (void)addPlayerCharactersObject:(PlayerCharacter *)value;
 - (void)removePlayerCharactersObject:(PlayerCharacter *)value;
 - (void)addPlayerCharacters:(NSSet *)values;
 - (void)removePlayerCharacters:(NSSet *)values;
-
-- (void)addSpellsObject:(Spell *)value;
-- (void)removeSpellsObject:(Spell *)value;
-- (void)addSpells:(NSSet *)values;
-- (void)removeSpells:(NSSet *)values;
 
 @end

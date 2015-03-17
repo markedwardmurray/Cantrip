@@ -11,6 +11,7 @@
 @interface CharacterClass (Methods)
 
 + (instancetype)createCharacterClassWithContext:(NSManagedObjectContext *)context
-                                           name:(NSString *)name;
+                                           name:(NSString *)name
+                                    publication:(Publication *)publication;
 
 @end

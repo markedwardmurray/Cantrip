@@ -11,11 +11,17 @@
 #import "MM_CreateSpellBookViewController.h"
 #import "MM_StarterSetDataManager.h"
 #import "PlayerCharacter.h"
+#import "CharacterRace.h"
 #import "SchoolOfMagic.h"
 #import "CharacterClass.h"
+#import "ChosenClass.h"
 #import "SpellBook.h"
+#import "AbilityScore.h"
 
 @interface MM_CharacterDetailTableViewController ()
+
+@property (strong, nonatomic) NSMutableArray *displayData;
+@property (strong, nonatomic) NSMutableArray *sectionHeaders;
 
 @end
 
@@ -35,6 +41,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    [self organizeDisplayData];
     [self.tableView reloadData];
 }
 
@@ -43,27 +51,90 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)organizeDisplayData {
+    self.displayData = [[NSMutableArray alloc]init];
+    self.sectionHeaders = [[NSMutableArray alloc]init];
+    
+
+    [self organizeCharacterBriefData];
+    [self organizeAbilityScoresData];
+    if (self.playerCharacter.spellBook != nil) {
+        [self organizeSpellBookData];
+    }
+}
+
+- (void)organizeCharacterBriefData {
+    NSString *characterBriefText = [NSString stringWithFormat:@"Level %@ %@ %@", self.playerCharacter.level, self.playerCharacter.characterRace.name, self.playerCharacter.chosenClass.name];
+    NSString *characterBriefDetail = @"";
+    if (self.playerCharacter.chosenClass.schoolOfMagic != nil) {
+        characterBriefDetail = self.playerCharacter.chosenClass.schoolOfMagic.name;
+    }
+    NSArray *characterBriefData = @[@[characterBriefText, characterBriefDetail]];
+    [self.displayData addObject:characterBriefData];
+    [self.sectionHeaders addObject:@""];
+}
+
+- (void)organizeAbilityScoresData {
+    NSMutableArray *abilityScoresData = [[NSMutableArray alloc]init];
+    
+    NSString *proficiencyBonusString = [NSString stringWithFormat:@"+%@", self.playerCharacter.proficiencyBonus];
+    [abilityScoresData addObject:@[proficiencyBonusString, @"Proficiency Bonus"]];
+    
+    NSArray *abilityScoreTitles = @[@"Strength", @"Dexterity", @"Constitution", @"Intelligence", @"Wisdom", @"Charisma"];
+    NSArray *abilityScoresArray = [self.playerCharacter.abilityScores allObjects];
+    for (NSString *currentTitle in abilityScoreTitles) {
+        AbilityScore *currentAbility = [abilityScoresArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.name == %@", currentTitle]][0];
+        NSMutableString *currentDetailText = [NSMutableString stringWithFormat:@"%@", currentAbility.baseScore];
+        if ([currentAbility.modifier integerValue] >= 0) {
+            [currentDetailText appendFormat:@"  (+%@)", currentAbility.modifier];
+        } else {
+            [currentDetailText appendFormat:@"  (%@)", currentAbility.modifier];
+        }
+        [abilityScoresData addObject:@[currentTitle, currentDetailText]];
+    }
+    
+    NSString *passiveWisdomString = [NSString stringWithFormat:@"%@", self.playerCharacter.passiveWisdom];
+    [abilityScoresData addObject:@[passiveWisdomString, @"Passive Wisdom"]];
+    
+    [self.displayData addObject:abilityScoresData];
+    [self.sectionHeaders addObject:@"ABILITY SCORES"];
+}
+
+- (void)organizeSpellBookData {
+    NSString *spellBookName = self.playerCharacter.spellBook.name;
+    NSString *spellBookSpellsCount = [NSString stringWithFormat:@"%li", [self.playerCharacter.spellBook.spells count]];
+    NSArray *spellBookData = @[@[spellBookName, spellBookSpellsCount]];
+    [self.displayData addObject:spellBookData];
+    [self.sectionHeaders addObject:@"SPELLBOOK"];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 1;
+    return [self.displayData count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 1;
+    return [self.displayData[section] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.sectionHeaders[section];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"spellBookCell" forIndexPath:indexPath];
-    cell.textLabel.text = self.playerCharacter.spellBook.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%li", [self.playerCharacter.spellBook.spells count]];
-    
-    // Configure the cell...
+    UITableViewCell *cell;
+    if (indexPath.section == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"characterBriefCell" forIndexPath:indexPath];
+    } else if (indexPath.section == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"abilityScoreCell" forIndexPath:indexPath];
+    } else if (indexPath.section == 2) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"spellBookCell" forIndexPath:indexPath];
+    }
+    NSArray *currentData = self.displayData[indexPath.section][indexPath.row];
+    cell.textLabel.text = currentData[0];
+    cell.detailTextLabel.text = currentData[1];
     
     return cell;
 }

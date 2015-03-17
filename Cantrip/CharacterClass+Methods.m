@@ -12,11 +12,13 @@
 
 + (instancetype)createCharacterClassWithContext:(NSManagedObjectContext *)context
                                            name:(NSString *)name
+                                    publication:(Publication *)publication
 {
     CharacterClass *newCharacterClass =
             [NSEntityDescription insertNewObjectForEntityForName:@"CharacterClass"
                                           inManagedObjectContext:context];
     newCharacterClass.name = name;
+    [newCharacterClass setPublication:publication];
     return newCharacterClass;
 }
 

@@ -9,9 +9,10 @@
 #import "MM_CharacterListTableViewController.h"
 #import "MM_CharacterDetailTableViewController.h"
 #import "MM_SpellLibraryTableViewController.h"
-#import "MM_AddCharacterViewController.h"
+#import "MM_NewCharacterViewController.h"
 #import "PlayerCharacter.h"
 #import "CharacterClass.h"
+#import "ChosenClass.h"
 
 @interface MM_CharacterListTableViewController ()
 
@@ -61,7 +62,7 @@
     
     cell.textLabel.text = currentPlayerCharacter.characterName;
     
-    NSString *detailText = [NSString stringWithFormat:@"  %@", currentPlayerCharacter.characterClass.name];
+    NSString *detailText = [NSString stringWithFormat:@"  %@", currentPlayerCharacter.chosenClass.name];
     cell.detailTextLabel.text = detailText;
     
     return cell;
@@ -114,7 +115,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         characterDTVC.playerCharacter = self.starterSetDataManager.playerCharactersArray[indexPath.row];
     }
-    else if ([segue.identifier isEqualToString:@"segueToAddCharacter"]) {
+    else if ([segue.identifier isEqualToString:@"segueToNewCharacter"]) {
         // defined in MAIN.Storyboard
     }
     else {

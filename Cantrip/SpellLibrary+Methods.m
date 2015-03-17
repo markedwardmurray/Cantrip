@@ -12,11 +12,13 @@
 
 + (instancetype)createSpellLibraryWithContext:(NSManagedObjectContext *)context
                                          name:(NSString *)name
+                                  publication:(Publication *)publication
 {
     SpellLibrary *newSpellLibrary =
             [NSEntityDescription insertNewObjectForEntityForName:@"SpellLibrary"
                                           inManagedObjectContext:context];
     newSpellLibrary.name = name;
+    [newSpellLibrary setPublication:publication];
     return newSpellLibrary;
 }
 

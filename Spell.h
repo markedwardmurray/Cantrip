@@ -2,7 +2,7 @@
 //  Spell.h
 //  Cantrip
 //
-//  Created by Mark Murray on 3/1/15.
+//  Created by Mark Murray on 3/16/15.
 //  Copyright (c) 2015 Mark Edward Murray. All rights reserved.
 //
 
@@ -19,8 +19,8 @@
 @property (nonatomic, retain) NSNumber * level;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * range;
-@property (nonatomic, retain) NSString * spellDescription;
 @property (nonatomic, retain) NSString * schoolName;
+@property (nonatomic, retain) NSString * spellDescription;
 @property (nonatomic, retain) NSSet *allowedClasses;
 @property (nonatomic, retain) SchoolOfMagic *schoolOfMagic;
 @property (nonatomic, retain) NSSet *spellBooks;

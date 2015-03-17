@@ -14,8 +14,11 @@
 @interface MM_StarterSetDataManager : NSObject
 
 @property (strong, nonatomic, readonly) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSArray *gameSystems;
+@property (strong, nonatomic) NSArray *publications;
 @property (strong, nonatomic) NSArray *playerCharactersArray;
 @property (strong, nonatomic) NSArray *spellLibrariesArray;
+@property (strong, nonatomic) NSArray *characterRaces;
 @property (strong, nonatomic) NSArray *characterClassesArray;
 @property (strong, nonatomic) NSArray *schoolsOfMagicArray;
 @property (strong, nonatomic) NSArray *allSpellsArray;

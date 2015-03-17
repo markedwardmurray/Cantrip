@@ -1,20 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AbilityScore" representedClassName="AbilityScore" syncable="YES">
+        <attribute name="baseScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isProficient" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="modifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="savingThrow" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="playerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="abilityScores" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="abilityScore" inverseEntity="Skill" syncable="YES"/>
+    </entity>
     <entity name="CharacterClass" representedClassName="CharacterClass" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="playerCharacters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="characterClass" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="chosenClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChosenClass" inverseName="characterClass" inverseEntity="ChosenClass" syncable="YES"/>
+        <relationship name="publication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Publication" inverseName="characterClasses" inverseEntity="Publication" syncable="YES"/>
         <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="allowedClasses" inverseEntity="Spell" syncable="YES"/>
     </entity>
+    <entity name="CharacterRace" representedClassName="CharacterRace" syncable="YES">
+        <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="playerCharacters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="characterRace" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="publication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Publication" inverseName="characterRaces" inverseEntity="Publication" syncable="YES"/>
+    </entity>
+    <entity name="ChosenClass" representedClassName="ChosenClass" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characterClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterClass" inverseName="chosenClasses" inverseEntity="CharacterClass" syncable="YES"/>
+        <relationship name="playerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="chosenClass" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="schoolOfMagic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SchoolOfMagic" inverseName="chosenClasses" inverseEntity="SchoolOfMagic" syncable="YES"/>
+    </entity>
+    <entity name="CombatInfo" representedClassName="CombatInfo" syncable="YES">
+        <attribute name="armorClass" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hitPointsCurrent" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hitPointsMax" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="hitPointsTemporary" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="initiativeModifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="playerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="combatInfo" inverseEntity="PlayerCharacter" syncable="YES"/>
+    </entity>
+    <entity name="GameSystem" representedClassName="GameSystem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publisher" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="publications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Publication" inverseName="gameSystem" inverseEntity="Publication" syncable="YES"/>
+    </entity>
     <entity name="PlayerCharacter" representedClassName="PlayerCharacter" syncable="YES">
+        <attribute name="alignment" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="characterName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="characterClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterClass" inverseName="playerCharacters" inverseEntity="CharacterClass" syncable="YES"/>
-        <relationship name="schoolOfMagic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SchoolOfMagic" inverseName="playerCharacters" inverseEntity="SchoolOfMagic" syncable="YES"/>
+        <attribute name="inspiration" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="passiveWisdom" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="proficiencyBonus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="abilityScores" optional="YES" toMany="YES" minCount="6" maxCount="6" deletionRule="Nullify" destinationEntity="AbilityScore" inverseName="playerCharacter" inverseEntity="AbilityScore" syncable="YES"/>
+        <relationship name="characterRace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterRace" inverseName="playerCharacters" inverseEntity="CharacterRace" syncable="YES"/>
+        <relationship name="chosenClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChosenClass" inverseName="playerCharacter" inverseEntity="ChosenClass" syncable="YES"/>
+        <relationship name="combatInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CombatInfo" inverseName="playerCharacter" inverseEntity="CombatInfo" syncable="YES"/>
         <relationship name="spellBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpellBook" inverseName="playerCharacter" inverseEntity="SpellBook" syncable="YES"/>
+    </entity>
+    <entity name="Publication" representedClassName="Publication" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="characterClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterClass" inverseName="publication" inverseEntity="CharacterClass" syncable="YES"/>
+        <relationship name="characterRaces" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CharacterRace" inverseName="publication" inverseEntity="CharacterRace" syncable="YES"/>
+        <relationship name="gameSystem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameSystem" inverseName="publications" inverseEntity="GameSystem" syncable="YES"/>
+        <relationship name="spellLibrary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpellLibrary" inverseName="publication" inverseEntity="SpellLibrary" syncable="YES"/>
     </entity>
     <entity name="SchoolOfMagic" representedClassName="SchoolOfMagic" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="playerCharacters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="schoolOfMagic" inverseEntity="PlayerCharacter" syncable="YES"/>
+        <relationship name="chosenClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChosenClass" inverseName="schoolOfMagic" inverseEntity="ChosenClass" syncable="YES"/>
         <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="schoolOfMagic" inverseEntity="Spell" syncable="YES"/>
+    </entity>
+    <entity name="Skill" representedClassName="Skill" syncable="YES">
+        <attribute name="isProficient" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="modifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="abilityScore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AbilityScore" inverseName="skills" inverseEntity="AbilityScore" syncable="YES"/>
     </entity>
     <entity name="Spell" representedClassName="Spell" syncable="YES">
         <attribute name="castingTime" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,14 +93,22 @@
     </entity>
     <entity name="SpellLibrary" representedClassName="SpellLibrary" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="publication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Publication" inverseName="spellLibrary" inverseEntity="Publication" syncable="YES"/>
         <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="spellLibraries" inverseEntity="Spell" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CharacterClass" positionX="-261" positionY="-52" width="128" height="88"/>
-        <element name="PlayerCharacter" positionX="-83" positionY="-198" width="128" height="103"/>
-        <element name="SchoolOfMagic" positionX="-81" positionY="36" width="128" height="88"/>
-        <element name="Spell" positionX="-452" positionY="-51" width="128" height="225"/>
-        <element name="SpellBook" positionX="-450" positionY="-196" width="128" height="88"/>
-        <element name="SpellLibrary" positionX="-684" positionY="-54" width="128" height="73"/>
+        <element name="AbilityScore" positionX="97" positionY="-211" width="128" height="148"/>
+        <element name="CharacterClass" positionX="-252" positionY="27" width="128" height="103"/>
+        <element name="CharacterRace" positionX="115" positionY="-45" width="128" height="103"/>
+        <element name="ChosenClass" positionX="-74" positionY="63" width="128" height="103"/>
+        <element name="CombatInfo" positionX="81" positionY="131" width="128" height="148"/>
+        <element name="GameSystem" positionX="-605" positionY="-195" width="128" height="88"/>
+        <element name="PlayerCharacter" positionX="-83" positionY="-198" width="128" height="208"/>
+        <element name="Publication" positionX="-596" positionY="-58" width="128" height="118"/>
+        <element name="SchoolOfMagic" positionX="-83" positionY="227" width="128" height="88"/>
+        <element name="Skill" positionX="277" positionY="-198" width="128" height="103"/>
+        <element name="Spell" positionX="-434" positionY="-51" width="128" height="225"/>
+        <element name="SpellBook" positionX="-432" positionY="-196" width="128" height="88"/>
+        <element name="SpellLibrary" positionX="-432" positionY="224" width="128" height="88"/>
     </elements>
 </model>

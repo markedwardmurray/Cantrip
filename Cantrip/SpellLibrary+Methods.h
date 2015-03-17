@@ -11,6 +11,7 @@
 @interface SpellLibrary (Methods)
 
 + (instancetype)createSpellLibraryWithContext:(NSManagedObjectContext *)context
-                                         name:(NSString *)name;
+                                         name:(NSString *)name
+                                  publication:(Publication *)publication;
 
 @end
