@@ -107,6 +107,7 @@
         [detailText appendFormat:@"  %@", allowedClass.name];
     }
     cell.detailTextLabel.text = detailText;
+    NSLog(@"Cell: %@", cell);
     
     return cell;
 }

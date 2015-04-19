@@ -2,7 +2,7 @@
 //  AbilityScore.h
 //  Cantrip
 //
-//  Created by Mark Murray on 3/17/15.
+//  Created by Mark Murray on 3/18/15.
 //  Copyright (c) 2015 Mark Edward Murray. All rights reserved.
 //
 
@@ -14,10 +14,11 @@
 @interface AbilityScore : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * baseScore;
+@property (nonatomic, retain) NSNumber * saveIsProficient;
 @property (nonatomic, retain) NSNumber * modifier;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * savingThrow;
-@property (nonatomic, retain) NSNumber * isProficient;
+@property (nonatomic, retain) NSNumber * racialAdjustment;
 @property (nonatomic, retain) PlayerCharacter *playerCharacter;
 @property (nonatomic, retain) NSSet *skills;
 @end

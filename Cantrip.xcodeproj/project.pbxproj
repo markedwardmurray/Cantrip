@@ -20,6 +20,10 @@
 		6A2507BD1AA155C500C2C98C /* SpellBook+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507BC1AA155C500C2C98C /* SpellBook+Methods.m */; };
 		6A2507C01AA156C500C2C98C /* SpellLibrary+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507BF1AA156C500C2C98C /* SpellLibrary+Methods.m */; };
 		6A2507C31AA1578D00C2C98C /* Spell+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2507C21AA1578D00C2C98C /* Spell+Methods.m */; };
+		6A3553701ABA5B5F002BCD86 /* Skill+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35536F1ABA5B5F002BCD86 /* Skill+Methods.m */; };
+		6A3553731ABA6486002BCD86 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3553721ABA6486002BCD86 /* Skill.m */; };
+		6A3553761ABA6486002BCD86 /* AbilityScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3553751ABA6486002BCD86 /* AbilityScore.m */; };
+		6A35537C1ABA6BB3002BCD86 /* PlayerCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A35537B1ABA6BB3002BCD86 /* PlayerCharacter.m */; };
 		6A5136961AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5136951AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m */; };
 		6A5136991AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5136981AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m */; };
 		6A51369B1AA24E9B00EF9FEC /* MAIN.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A51369A1AA24E9B00EF9FEC /* MAIN.Storyboard */; };
@@ -39,17 +43,14 @@
 		6AA2E30D1A9B747A00843582 /* MM_Spell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E30C1A9B747A00843582 /* MM_Spell.m */; };
 		6AA2E3101A9B7BE600843582 /* MM_SpellSlots.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */; };
 		6AA2E3131A9BA61500843582 /* MM_AbilityScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */; };
-		6ABCE4A11AB7EFD0003BAAF6 /* AbilityScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ABCE4A01AB7EFD0003BAAF6 /* AbilityScore.m */; };
 		6AE710FE1AB71C7E00ADFA83 /* AbilityScore+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE710FD1AB71C7E00ADFA83 /* AbilityScore+Methods.m */; };
 		6AE7112E1AB7A1D900ADFA83 /* ChosenClass+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7112D1AB7A1D900ADFA83 /* ChosenClass+Methods.m */; };
 		6AE711551AB7A7F600ADFA83 /* CharacterRace+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711541AB7A7F600ADFA83 /* CharacterRace+Methods.m */; };
-		6AE711611AB7C7F600ADFA83 /* PlayerCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711601AB7C7F600ADFA83 /* PlayerCharacter.m */; };
 		6AE711671AB7C7F700ADFA83 /* SpellLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711661AB7C7F700ADFA83 /* SpellLibrary.m */; };
 		6AE7116A1AB7C7F700ADFA83 /* CombatInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711691AB7C7F700ADFA83 /* CombatInfo.m */; };
 		6AE7116D1AB7C7F700ADFA83 /* SchoolOfMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7116C1AB7C7F700ADFA83 /* SchoolOfMagic.m */; };
 		6AE711701AB7C7F700ADFA83 /* CharacterRace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7116F1AB7C7F700ADFA83 /* CharacterRace.m */; };
 		6AE711731AB7C7F700ADFA83 /* SpellBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711721AB7C7F700ADFA83 /* SpellBook.m */; };
-		6AE711791AB7C7F800ADFA83 /* Skill.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711781AB7C7F800ADFA83 /* Skill.m */; };
 		6AE7117F1AB7C7F800ADFA83 /* CharacterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7117E1AB7C7F800ADFA83 /* CharacterClass.m */; };
 		6AE711821AB7C7F800ADFA83 /* Spell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711811AB7C7F800ADFA83 /* Spell.m */; };
 		6AE711851AB7C7F800ADFA83 /* ChosenClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AE711841AB7C7F800ADFA83 /* ChosenClass.m */; };
@@ -94,6 +95,14 @@
 		6A2507BF1AA156C500C2C98C /* SpellLibrary+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SpellLibrary+Methods.m"; sourceTree = "<group>"; };
 		6A2507C11AA1578D00C2C98C /* Spell+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Spell+Methods.h"; sourceTree = "<group>"; };
 		6A2507C21AA1578D00C2C98C /* Spell+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Spell+Methods.m"; sourceTree = "<group>"; };
+		6A35536E1ABA5B5F002BCD86 /* Skill+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Skill+Methods.h"; sourceTree = "<group>"; };
+		6A35536F1ABA5B5F002BCD86 /* Skill+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Skill+Methods.m"; sourceTree = "<group>"; };
+		6A3553711ABA6486002BCD86 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skill.h; sourceTree = "<group>"; };
+		6A3553721ABA6486002BCD86 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skill.m; sourceTree = "<group>"; };
+		6A3553741ABA6486002BCD86 /* AbilityScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbilityScore.h; sourceTree = "<group>"; };
+		6A3553751ABA6486002BCD86 /* AbilityScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbilityScore.m; sourceTree = "<group>"; };
+		6A35537A1ABA6BB3002BCD86 /* PlayerCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCharacter.h; sourceTree = "<group>"; };
+		6A35537B1ABA6BB3002BCD86 /* PlayerCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCharacter.m; sourceTree = "<group>"; };
 		6A5136941AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CreateSpellBookViewController.h; sourceTree = "<group>"; };
 		6A5136951AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CreateSpellBookViewController.m; sourceTree = "<group>"; };
 		6A5136971AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_AddSpellToSpellBookTableViewController.h; sourceTree = "<group>"; };
@@ -129,16 +138,12 @@
 		6AA2E30F1A9B7BE600843582 /* MM_SpellSlots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_SpellSlots.m; sourceTree = "<group>"; };
 		6AA2E3111A9BA61500843582 /* MM_AbilityScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_AbilityScore.h; sourceTree = "<group>"; };
 		6AA2E3121A9BA61500843582 /* MM_AbilityScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_AbilityScore.m; sourceTree = "<group>"; };
-		6ABCE49F1AB7EFD0003BAAF6 /* AbilityScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AbilityScore.h; path = ../AbilityScore.h; sourceTree = "<group>"; };
-		6ABCE4A01AB7EFD0003BAAF6 /* AbilityScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AbilityScore.m; path = ../AbilityScore.m; sourceTree = "<group>"; };
 		6AE710FC1AB71C7E00ADFA83 /* AbilityScore+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AbilityScore+Methods.h"; sourceTree = "<group>"; };
 		6AE710FD1AB71C7E00ADFA83 /* AbilityScore+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AbilityScore+Methods.m"; sourceTree = "<group>"; };
 		6AE7112C1AB7A1D900ADFA83 /* ChosenClass+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ChosenClass+Methods.h"; sourceTree = "<group>"; };
 		6AE7112D1AB7A1D900ADFA83 /* ChosenClass+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ChosenClass+Methods.m"; sourceTree = "<group>"; };
 		6AE711531AB7A7F600ADFA83 /* CharacterRace+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CharacterRace+Methods.h"; sourceTree = "<group>"; };
 		6AE711541AB7A7F600ADFA83 /* CharacterRace+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CharacterRace+Methods.m"; sourceTree = "<group>"; };
-		6AE7115F1AB7C7F600ADFA83 /* PlayerCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerCharacter.h; path = ../PlayerCharacter.h; sourceTree = "<group>"; };
-		6AE711601AB7C7F600ADFA83 /* PlayerCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerCharacter.m; path = ../PlayerCharacter.m; sourceTree = "<group>"; };
 		6AE711651AB7C7F700ADFA83 /* SpellLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellLibrary.h; path = ../SpellLibrary.h; sourceTree = "<group>"; };
 		6AE711661AB7C7F700ADFA83 /* SpellLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpellLibrary.m; path = ../SpellLibrary.m; sourceTree = "<group>"; };
 		6AE711681AB7C7F700ADFA83 /* CombatInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CombatInfo.h; path = ../CombatInfo.h; sourceTree = "<group>"; };
@@ -149,8 +154,6 @@
 		6AE7116F1AB7C7F700ADFA83 /* CharacterRace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterRace.m; path = ../CharacterRace.m; sourceTree = "<group>"; };
 		6AE711711AB7C7F700ADFA83 /* SpellBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpellBook.h; path = ../SpellBook.h; sourceTree = "<group>"; };
 		6AE711721AB7C7F700ADFA83 /* SpellBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpellBook.m; path = ../SpellBook.m; sourceTree = "<group>"; };
-		6AE711771AB7C7F800ADFA83 /* Skill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Skill.h; path = ../Skill.h; sourceTree = "<group>"; };
-		6AE711781AB7C7F800ADFA83 /* Skill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Skill.m; path = ../Skill.m; sourceTree = "<group>"; };
 		6AE7117D1AB7C7F800ADFA83 /* CharacterClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterClass.h; path = ../CharacterClass.h; sourceTree = "<group>"; };
 		6AE7117E1AB7C7F800ADFA83 /* CharacterClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterClass.m; path = ../CharacterClass.m; sourceTree = "<group>"; };
 		6AE711801AB7C7F800ADFA83 /* Spell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Spell.h; path = ../Spell.h; sourceTree = "<group>"; };
@@ -198,16 +201,16 @@
 				6AE711661AB7C7F700ADFA83 /* SpellLibrary.m */,
 				6AE7116B1AB7C7F700ADFA83 /* SchoolOfMagic.h */,
 				6AE7116C1AB7C7F700ADFA83 /* SchoolOfMagic.m */,
-				6AE7115F1AB7C7F600ADFA83 /* PlayerCharacter.h */,
-				6AE711601AB7C7F600ADFA83 /* PlayerCharacter.m */,
+				6A35537A1ABA6BB3002BCD86 /* PlayerCharacter.h */,
+				6A35537B1ABA6BB3002BCD86 /* PlayerCharacter.m */,
 				6AE7116E1AB7C7F700ADFA83 /* CharacterRace.h */,
 				6AE7116F1AB7C7F700ADFA83 /* CharacterRace.m */,
 				6AE7117D1AB7C7F800ADFA83 /* CharacterClass.h */,
 				6AE7117E1AB7C7F800ADFA83 /* CharacterClass.m */,
-				6ABCE49F1AB7EFD0003BAAF6 /* AbilityScore.h */,
-				6ABCE4A01AB7EFD0003BAAF6 /* AbilityScore.m */,
-				6AE711771AB7C7F800ADFA83 /* Skill.h */,
-				6AE711781AB7C7F800ADFA83 /* Skill.m */,
+				6A3553741ABA6486002BCD86 /* AbilityScore.h */,
+				6A3553751ABA6486002BCD86 /* AbilityScore.m */,
+				6A3553711ABA6486002BCD86 /* Skill.h */,
+				6A3553721ABA6486002BCD86 /* Skill.m */,
 				6AE711681AB7C7F700ADFA83 /* CombatInfo.h */,
 				6AE711691AB7C7F700ADFA83 /* CombatInfo.m */,
 				6A2507B11AA1523C00C2C98C /* ManagedObjectsCatalogs */,
@@ -285,6 +288,8 @@
 				6AE711541AB7A7F600ADFA83 /* CharacterRace+Methods.m */,
 				6AE710FC1AB71C7E00ADFA83 /* AbilityScore+Methods.h */,
 				6AE710FD1AB71C7E00ADFA83 /* AbilityScore+Methods.m */,
+				6A35536E1ABA5B5F002BCD86 /* Skill+Methods.h */,
+				6A35536F1ABA5B5F002BCD86 /* Skill+Methods.m */,
 			);
 			name = ManagedObjectsCatalogs;
 			sourceTree = "<group>";
@@ -469,10 +474,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AE711791AB7C7F800ADFA83 /* Skill.m in Sources */,
 				6A2507C01AA156C500C2C98C /* SpellLibrary+Methods.m in Sources */,
 				6AE7117F1AB7C7F800ADFA83 /* CharacterClass.m in Sources */,
-				6AE711611AB7C7F600ADFA83 /* PlayerCharacter.m in Sources */,
 				6A2507B71AA1546000C2C98C /* CharacterClass+Methods.m in Sources */,
 				6AA2E3101A9B7BE600843582 /* MM_SpellSlots.m in Sources */,
 				6A5136961AA19FAB00EF9FEC /* MM_CreateSpellBookViewController.m in Sources */,
@@ -480,6 +483,7 @@
 				6A2507BD1AA155C500C2C98C /* SpellBook+Methods.m in Sources */,
 				6AA2E30D1A9B747A00843582 /* MM_Spell.m in Sources */,
 				6AA2E30A1A9A9C8E00843582 /* MM_BasicInfoTableViewCell.m in Sources */,
+				6A3553731ABA6486002BCD86 /* Skill.m in Sources */,
 				6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */,
 				6AE711731AB7C7F700ADFA83 /* SpellBook.m in Sources */,
 				6AE711881AB7C86000ADFA83 /* Publication.m in Sources */,
@@ -497,18 +501,20 @@
 				6AA2E3021A9A6C3500843582 /* MM_CharacterSheetTableViewController.m in Sources */,
 				6AE711551AB7A7F600ADFA83 /* CharacterRace+Methods.m in Sources */,
 				6A2507C31AA1578D00C2C98C /* Spell+Methods.m in Sources */,
-				6ABCE4A11AB7EFD0003BAAF6 /* AbilityScore.m in Sources */,
 				6A51369E1AA2862500EF9FEC /* MM_StarterSetDataGenerator.m in Sources */,
+				6A3553761ABA6486002BCD86 /* AbilityScore.m in Sources */,
 				6A1ACADA1AA0CEA9002A231F /* MM_StarterSetDataManager.m in Sources */,
 				6AE7116D1AB7C7F700ADFA83 /* SchoolOfMagic.m in Sources */,
 				6AE711821AB7C7F800ADFA83 /* Spell.m in Sources */,
 				6AE710FE1AB71C7E00ADFA83 /* AbilityScore+Methods.m in Sources */,
 				6A25078E1AA0EFAF00C2C98C /* MM_CharacterDetailTableViewController.m in Sources */,
+				6A35537C1ABA6BB3002BCD86 /* PlayerCharacter.m in Sources */,
 				6AA2E2FF1A9A61F000843582 /* MM_CharacterSkill.m in Sources */,
 				6AA2E2D41A9A595A00843582 /* main.m in Sources */,
 				6AA2E3051A9A928200843582 /* MM_MenuTableViewController.m in Sources */,
 				6A2507911AA0F2B900C2C98C /* MM_SpellBookTableViewController.m in Sources */,
 				6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */,
+				6A3553701ABA5B5F002BCD86 /* Skill+Methods.m in Sources */,
 				6A5136991AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m in Sources */,
 				6AA2E3131A9BA61500843582 /* MM_AbilityScore.m in Sources */,
 				6AA2E2FC1A9A5A3800843582 /* MM_PlayerCharacter.m in Sources */,

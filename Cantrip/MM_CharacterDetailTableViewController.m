@@ -17,6 +17,7 @@
 #import "ChosenClass.h"
 #import "SpellBook.h"
 #import "AbilityScore.h"
+#import "Skill.h"
 
 @interface MM_CharacterDetailTableViewController ()
 
@@ -58,6 +59,7 @@
 
     [self organizeCharacterBriefData];
     [self organizeAbilityScoresData];
+    [self organizeSkillsData];
     if (self.playerCharacter.spellBook != nil) {
         [self organizeSpellBookData];
     }
@@ -100,6 +102,20 @@
     [self.sectionHeaders addObject:@"ABILITY SCORES"];
 }
 
+- (void)organizeSkillsData {
+    NSMutableArray *skillsData = [[NSMutableArray alloc]init];
+    
+    NSArray *skillsArray = [self.playerCharacter.skills allObjects];
+    NSArray *sortedSkills = [skillsArray sortedArrayUsingDescriptors:@[self.starterSetDataManager.sortByNameAsc]];
+    for (Skill *currentSkill in sortedSkills) {
+        NSString *skillInfo = [NSString stringWithFormat:@"🔲 +%@", currentSkill.modifier];
+        NSString *skillName = currentSkill.name;
+        [skillsData addObject:@[skillInfo, skillName]];
+    }
+    [self.displayData addObject:skillsData];
+    [self.sectionHeaders addObject:@"SKILLS"];
+}
+
 - (void)organizeSpellBookData {
     NSString *spellBookName = self.playerCharacter.spellBook.name;
     NSString *spellBookSpellsCount = [NSString stringWithFormat:@"%li", [self.playerCharacter.spellBook.spells count]];
@@ -130,6 +146,8 @@
     } else if (indexPath.section == 1) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"abilityScoreCell" forIndexPath:indexPath];
     } else if (indexPath.section == 2) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"skillCell" forIndexPath:indexPath];
+    } else if (indexPath.section == 3) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"spellBookCell" forIndexPath:indexPath];
     }
     NSArray *currentData = self.displayData[indexPath.section][indexPath.row];

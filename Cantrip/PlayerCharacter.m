@@ -2,7 +2,7 @@
 //  PlayerCharacter.m
 //  Cantrip
 //
-//  Created by Mark Murray on 3/16/15.
+//  Created by Mark Murray on 3/18/15.
 //  Copyright (c) 2015 Mark Edward Murray. All rights reserved.
 //
 
@@ -11,21 +11,23 @@
 #import "CharacterRace.h"
 #import "ChosenClass.h"
 #import "CombatInfo.h"
+#import "Skill.h"
 #import "SpellBook.h"
 
 
 @implementation PlayerCharacter
 
-@dynamic characterName;
-@dynamic level;
-@dynamic proficiencyBonus;
-@dynamic passiveWisdom;
-@dynamic inspiration;
 @dynamic alignment;
+@dynamic characterName;
+@dynamic inspiration;
+@dynamic level;
+@dynamic passiveWisdom;
+@dynamic proficiencyBonus;
 @dynamic abilityScores;
-@dynamic spellBook;
 @dynamic characterRace;
-@dynamic combatInfo;
 @dynamic chosenClass;
+@dynamic combatInfo;
+@dynamic spellBook;
+@dynamic skills;
 
 @end

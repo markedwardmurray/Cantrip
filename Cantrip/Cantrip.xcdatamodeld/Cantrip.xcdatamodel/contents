@@ -2,9 +2,10 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AbilityScore" representedClassName="AbilityScore" syncable="YES">
         <attribute name="baseScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="isProficient" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="modifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="racialAdjustment" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="saveIsProficient" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="savingThrow" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="playerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="abilityScores" inverseEntity="PlayerCharacter" syncable="YES"/>
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="abilityScore" inverseEntity="Skill" syncable="YES"/>
@@ -52,6 +53,7 @@
         <relationship name="characterRace" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CharacterRace" inverseName="playerCharacters" inverseEntity="CharacterRace" syncable="YES"/>
         <relationship name="chosenClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChosenClass" inverseName="playerCharacter" inverseEntity="ChosenClass" syncable="YES"/>
         <relationship name="combatInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CombatInfo" inverseName="playerCharacter" inverseEntity="CombatInfo" syncable="YES"/>
+        <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="playerCharacter" inverseEntity="Skill" syncable="YES"/>
         <relationship name="spellBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpellBook" inverseName="playerCharacter" inverseEntity="SpellBook" syncable="YES"/>
     </entity>
     <entity name="Publication" representedClassName="Publication" syncable="YES">
@@ -71,6 +73,7 @@
         <attribute name="modifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="abilityScore" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AbilityScore" inverseName="skills" inverseEntity="AbilityScore" syncable="YES"/>
+        <relationship name="playerCharacter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlayerCharacter" inverseName="skills" inverseEntity="PlayerCharacter" syncable="YES"/>
     </entity>
     <entity name="Spell" representedClassName="Spell" syncable="YES">
         <attribute name="castingTime" optional="YES" attributeType="String" syncable="YES"/>
@@ -97,16 +100,16 @@
         <relationship name="spells" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Spell" inverseName="spellLibraries" inverseEntity="Spell" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AbilityScore" positionX="97" positionY="-211" width="128" height="148"/>
+        <element name="AbilityScore" positionX="97" positionY="-211" width="128" height="163"/>
         <element name="CharacterClass" positionX="-252" positionY="27" width="128" height="103"/>
-        <element name="CharacterRace" positionX="115" positionY="-45" width="128" height="103"/>
+        <element name="CharacterRace" positionX="99" positionY="-31" width="128" height="103"/>
         <element name="ChosenClass" positionX="-74" positionY="63" width="128" height="103"/>
         <element name="CombatInfo" positionX="81" positionY="131" width="128" height="148"/>
         <element name="GameSystem" positionX="-605" positionY="-195" width="128" height="88"/>
-        <element name="PlayerCharacter" positionX="-83" positionY="-198" width="128" height="208"/>
+        <element name="PlayerCharacter" positionX="-83" positionY="-198" width="128" height="223"/>
         <element name="Publication" positionX="-596" positionY="-58" width="128" height="118"/>
         <element name="SchoolOfMagic" positionX="-83" positionY="227" width="128" height="88"/>
-        <element name="Skill" positionX="277" positionY="-198" width="128" height="103"/>
+        <element name="Skill" positionX="277" positionY="-153" width="128" height="118"/>
         <element name="Spell" positionX="-434" positionY="-51" width="128" height="225"/>
         <element name="SpellBook" positionX="-432" positionY="-196" width="128" height="88"/>
         <element name="SpellLibrary" positionX="-432" positionY="224" width="128" height="88"/>
