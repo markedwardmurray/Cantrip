@@ -18,6 +18,7 @@
 #import "SchoolOfMagic+Methods.h"
 #import "SpellLibrary+Methods.h"
 #import "CharacterRace+Methods.h"
+#import "Skill+Methods.h"
 
 @interface MM_StarterSetDataManager ()
 
@@ -169,6 +170,12 @@
     
     NSArray *spellsToAdd = @[light, mageHand, magicMissile];
     [merlinsSpellBook addSpells:[NSSet setWithArray:spellsToAdd]];
+    
+    NSArray *merlinsSkills = [merlin.skills allObjects];
+    Skill *investigation = [merlinsSkills filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.name == %@", @"Investigation"]][0];
+    [investigation toggleProficiency];
+    Skill *medicine = [merlinsSkills filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.name == %@", @"Medicine"]][0];
+    [medicine toggleProficiency];
     
     [self saveContext];
     [self fetchData];

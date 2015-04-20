@@ -28,6 +28,7 @@
 		6A5136991AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5136981AA245AD00EF9FEC /* MM_AddSpellToSpellBookTableViewController.m */; };
 		6A51369B1AA24E9B00EF9FEC /* MAIN.Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A51369A1AA24E9B00EF9FEC /* MAIN.Storyboard */; };
 		6A51369E1AA2862500EF9FEC /* MM_StarterSetDataGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A51369D1AA2862500EF9FEC /* MM_StarterSetDataGenerator.m */; };
+		6A88747E1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A88747D1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.m */; };
 		6AA2E2D41A9A595A00843582 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D31A9A595A00843582 /* main.m */; };
 		6AA2E2D71A9A595A00843582 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D61A9A595A00843582 /* AppDelegate.m */; };
 		6AA2E2DA1A9A595B00843582 /* Cantrip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AA2E2D81A9A595A00843582 /* Cantrip.xcdatamodeld */; };
@@ -110,6 +111,8 @@
 		6A51369A1AA24E9B00EF9FEC /* MAIN.Storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MAIN.Storyboard; sourceTree = "<group>"; };
 		6A51369C1AA2862500EF9FEC /* MM_StarterSetDataGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_StarterSetDataGenerator.h; sourceTree = "<group>"; };
 		6A51369D1AA2862500EF9FEC /* MM_StarterSetDataGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_StarterSetDataGenerator.m; sourceTree = "<group>"; };
+		6A88747C1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MM_CharacterDetailDataManager.h; sourceTree = "<group>"; };
+		6A88747D1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MM_CharacterDetailDataManager.m; sourceTree = "<group>"; };
 		6AA2E2CE1A9A595A00843582 /* Cantrip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cantrip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA2E2D21A9A595A00843582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA2E2D31A9A595A00843582 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -325,6 +328,8 @@
 				6A1ACAD91AA0CEA9002A231F /* MM_StarterSetDataManager.m */,
 				6A51369C1AA2862500EF9FEC /* MM_StarterSetDataGenerator.h */,
 				6A51369D1AA2862500EF9FEC /* MM_StarterSetDataGenerator.m */,
+				6A88747C1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.h */,
+				6A88747D1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.m */,
 				6AA2E2E11A9A595B00843582 /* Images.xcassets */,
 				6AA2E2D81A9A595A00843582 /* Cantrip.xcdatamodeld */,
 				6A1ACAD71AA0CB5D002A231F /* ManagedObjects */,
@@ -492,6 +497,7 @@
 				6A2507B01AA12BB500C2C98C /* MM_NewCharacterViewController.m in Sources */,
 				6A2507BA1AA1552700C2C98C /* SchoolOfMagic+Methods.m in Sources */,
 				6AE711851AB7C7F800ADFA83 /* ChosenClass.m in Sources */,
+				6A88747E1AE58B4F00FF1280 /* MM_CharacterDetailDataManager.m in Sources */,
 				6AE7116A1AB7C7F700ADFA83 /* CombatInfo.m in Sources */,
 				6AE7118B1AB7CA7C00ADFA83 /* GameSystem.m in Sources */,
 				6A2507B41AA152BE00C2C98C /* PlayerCharacter+Methods.m in Sources */,

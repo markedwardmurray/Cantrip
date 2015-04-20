@@ -7,9 +7,16 @@
 //
 
 #import "MM_CharacterDetailTableViewController.h"
+
+// View Controllers
 #import "MM_SpellBookTableViewController.h"
 #import "MM_CreateSpellBookViewController.h"
+
+// Data Managers
 #import "MM_StarterSetDataManager.h"
+#import "MM_CharacterDetailDataManager.h"
+
+// Core Data Models
 #import "PlayerCharacter.h"
 #import "CharacterRace.h"
 #import "SchoolOfMagic.h"
@@ -21,6 +28,7 @@
 
 @interface MM_CharacterDetailTableViewController ()
 
+@property (strong, nonatomic) MM_CharacterDetailDataManager *characterDetailDataManager;
 @property (strong, nonatomic) NSMutableArray *displayData;
 @property (strong, nonatomic) NSMutableArray *sectionHeaders;
 
@@ -37,13 +45,14 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.starterSetDataManager = [MM_StarterSetDataManager sharedStarterSetDataManager];
+    self.characterDetailDataManager = [[MM_CharacterDetailDataManager alloc]initWithPlayerCharacter:self.playerCharacter];
     self.navigationItem.title = self.playerCharacter.characterName;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self organizeDisplayData];
+    [self organizeDisplayDataAndSectionHeaders];
     [self.tableView reloadData];
 }
 
@@ -52,77 +61,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)organizeDisplayData {
-    self.displayData = [[NSMutableArray alloc]init];
-    self.sectionHeaders = [[NSMutableArray alloc]init];
-    
-
-    [self organizeCharacterBriefData];
-    [self organizeAbilityScoresData];
-    [self organizeSkillsData];
-    if (self.playerCharacter.spellBook != nil) {
-        [self organizeSpellBookData];
-    }
+- (void)organizeDisplayDataAndSectionHeaders {
+    [self.characterDetailDataManager organizeDisplayDataAndSectionHeaders];
+    self.displayData = self.characterDetailDataManager.displayData;
+    self.sectionHeaders = self.characterDetailDataManager.sectionHeaders;
 }
 
-- (void)organizeCharacterBriefData {
-    NSString *characterBriefText = [NSString stringWithFormat:@"Level %@ %@ %@", self.playerCharacter.level, self.playerCharacter.characterRace.name, self.playerCharacter.chosenClass.name];
-    NSString *characterBriefDetail = @"";
-    if (self.playerCharacter.chosenClass.schoolOfMagic != nil) {
-        characterBriefDetail = self.playerCharacter.chosenClass.schoolOfMagic.name;
-    }
-    NSArray *characterBriefData = @[@[characterBriefText, characterBriefDetail]];
-    [self.displayData addObject:characterBriefData];
-    [self.sectionHeaders addObject:@""];
-}
-
-- (void)organizeAbilityScoresData {
-    NSMutableArray *abilityScoresData = [[NSMutableArray alloc]init];
-    
-    NSString *proficiencyBonusString = [NSString stringWithFormat:@"+%@", self.playerCharacter.proficiencyBonus];
-    [abilityScoresData addObject:@[proficiencyBonusString, @"Proficiency Bonus"]];
-    
-    NSArray *abilityScoreTitles = @[@"Strength", @"Dexterity", @"Constitution", @"Intelligence", @"Wisdom", @"Charisma"];
-    NSArray *abilityScoresArray = [self.playerCharacter.abilityScores allObjects];
-    for (NSString *currentTitle in abilityScoreTitles) {
-        AbilityScore *currentAbility = [abilityScoresArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.name == %@", currentTitle]][0];
-        NSMutableString *currentDetailText = [NSMutableString stringWithFormat:@"%@", currentAbility.baseScore];
-        if ([currentAbility.modifier integerValue] >= 0) {
-            [currentDetailText appendFormat:@"  (+%@)", currentAbility.modifier];
-        } else {
-            [currentDetailText appendFormat:@"  (%@)", currentAbility.modifier];
-        }
-        [abilityScoresData addObject:@[currentTitle, currentDetailText]];
-    }
-    
-    NSString *passiveWisdomString = [NSString stringWithFormat:@"%@", self.playerCharacter.passiveWisdom];
-    [abilityScoresData addObject:@[passiveWisdomString, @"Passive Wisdom"]];
-    
-    [self.displayData addObject:abilityScoresData];
-    [self.sectionHeaders addObject:@"ABILITY SCORES"];
-}
-
-- (void)organizeSkillsData {
-    NSMutableArray *skillsData = [[NSMutableArray alloc]init];
-    
-    NSArray *skillsArray = [self.playerCharacter.skills allObjects];
-    NSArray *sortedSkills = [skillsArray sortedArrayUsingDescriptors:@[self.starterSetDataManager.sortByNameAsc]];
-    for (Skill *currentSkill in sortedSkills) {
-        NSString *skillInfo = [NSString stringWithFormat:@"🔲 +%@", currentSkill.modifier];
-        NSString *skillName = currentSkill.name;
-        [skillsData addObject:@[skillInfo, skillName]];
-    }
-    [self.displayData addObject:skillsData];
-    [self.sectionHeaders addObject:@"SKILLS"];
-}
-
-- (void)organizeSpellBookData {
-    NSString *spellBookName = self.playerCharacter.spellBook.name;
-    NSString *spellBookSpellsCount = [NSString stringWithFormat:@"%li", [self.playerCharacter.spellBook.spells count]];
-    NSArray *spellBookData = @[@[spellBookName, spellBookSpellsCount]];
-    [self.displayData addObject:spellBookData];
-    [self.sectionHeaders addObject:@"SPELLBOOK"];
-}
 
 #pragma mark - Table view data source
 
