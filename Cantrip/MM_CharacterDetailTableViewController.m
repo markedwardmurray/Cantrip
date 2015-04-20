@@ -24,7 +24,7 @@
 #import "ChosenClass.h"
 #import "SpellBook.h"
 #import "AbilityScore.h"
-#import "Skill.h"
+#import "Skill+Methods.h"
 
 @interface MM_CharacterDetailTableViewController ()
 
@@ -53,7 +53,6 @@
 {
     [super viewWillAppear:animated];
     [self organizeDisplayDataAndSectionHeaders];
-    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +64,7 @@
     [self.characterDetailDataManager organizeDisplayDataAndSectionHeaders];
     self.displayData = self.characterDetailDataManager.displayData;
     self.sectionHeaders = self.characterDetailDataManager.sectionHeaders;
+    [self.tableView reloadData];
 }
 
 
@@ -99,6 +99,17 @@
     cell.detailTextLabel.text = currentData[1];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {  // is a skill cell
+        NSArray *skillsArray = [self.playerCharacter.skills allObjects];
+        NSArray *sortedSkills = [skillsArray sortedArrayUsingDescriptors:@[self.starterSetDataManager.sortByNameAsc]];
+        Skill *selectedSkill = sortedSkills[indexPath.row];
+        [selectedSkill toggleProficiency];
+        [self.starterSetDataManager saveContext];
+        [self organizeDisplayDataAndSectionHeaders];
+    }
 }
 
 
