@@ -39,6 +39,8 @@
     if (self.relevantSpellBook == nil) {
         self.addSpellButton.enabled = NO;
     }
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +62,21 @@
     return 6;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if (indexPath.row == 5) {
+        CGRect screenBounds = [[UIScreen mainScreen] bounds];
+        CGSize screenSize = screenBounds.size;
+        
+        UILabel *calcLabel = [[UILabel alloc] init];
+        calcLabel.numberOfLines = 0;
+        calcLabel.text = self.spell.spellDescription;
+        CGSize size = [calcLabel sizeThatFits:CGSizeMake(screenSize.width, FLT_MAX)];
+        return size.height;
+    } else {
+        return 44.0;
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
@@ -77,6 +94,10 @@
     else if (indexPath.row == 5) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"basicCell" forIndexPath:indexPath];
         cell.textLabel.text = self.spell.spellDescription;
+        
+        cell.textLabel.numberOfLines = 0;
+        [cell.textLabel setLineBreakMode:NSLineBreakByWordWrapping];
+        [cell.textLabel sizeToFit];
     }
     
     // Configure the cell...

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14A389" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
     <entity name="AbilityScore" representedClassName="AbilityScore" syncable="YES">
         <attribute name="baseScore" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="modifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -11,6 +11,7 @@
         <relationship name="skills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Skill" inverseName="abilityScore" inverseEntity="Skill" syncable="YES"/>
     </entity>
     <entity name="CharacterClass" representedClassName="CharacterClass" syncable="YES">
+        <attribute name="attribute" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="chosenClasses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ChosenClass" inverseName="characterClass" inverseEntity="ChosenClass" syncable="YES"/>
         <relationship name="publication" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Publication" inverseName="characterClasses" inverseEntity="Publication" syncable="YES"/>
@@ -101,7 +102,7 @@
     </entity>
     <elements>
         <element name="AbilityScore" positionX="97" positionY="-211" width="128" height="163"/>
-        <element name="CharacterClass" positionX="-252" positionY="27" width="128" height="103"/>
+        <element name="CharacterClass" positionX="-252" positionY="27" width="128" height="118"/>
         <element name="CharacterRace" positionX="99" positionY="-31" width="128" height="103"/>
         <element name="ChosenClass" positionX="-74" positionY="63" width="128" height="103"/>
         <element name="CombatInfo" positionX="81" positionY="131" width="128" height="148"/>
