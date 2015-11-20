@@ -132,16 +132,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-Aw-yBj">
-                                <rect key="frame" x="277" y="550" width="46" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Create">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createTapped:" destination="SgU-q7-gzH" eventType="touchUpInside" id="km2-Yx-noz"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Starting Level:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOd-ia-Ug3">
                                 <rect key="frame" x="16" y="202" width="110" height="21"/>
                                 <animations/>
@@ -203,7 +193,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mz-Eq-jRK">
-                                <rect key="frame" x="204" y="265" width="88" height="30"/>
+                                <rect key="frame" x="205" y="265" width="88" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -233,6 +223,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmu-Aw-yBj">
+                                <rect key="frame" x="277" y="302" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createTapped:" destination="SgU-q7-gzH" eventType="touchUpInside" id="km2-Yx-noz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -253,6 +253,7 @@
                             <constraint firstItem="XEc-Tt-LDC" firstAttribute="width" secondItem="7kH-2W-Mgq" secondAttribute="width" id="8LI-Vw-BaY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UFt-zb-ORA" secondAttribute="trailing" id="8k7-or-uiK"/>
                             <constraint firstItem="3mz-Eq-jRK" firstAttribute="top" secondItem="hMp-ZO-wAj" secondAttribute="bottom" constant="8" id="9DI-N9-RUb"/>
+                            <constraint firstItem="jmu-Aw-yBj" firstAttribute="top" secondItem="RpZ-Gj-sFl" secondAttribute="bottom" constant="8" id="9FC-He-gd0"/>
                             <constraint firstItem="YOd-ia-Ug3" firstAttribute="leading" secondItem="GWE-F8-Xgb" secondAttribute="leadingMargin" id="9WO-Cl-jnz"/>
                             <constraint firstItem="hMp-ZO-wAj" firstAttribute="centerY" secondItem="gAr-Dx-iWk" secondAttribute="centerY" id="ASS-Ii-05r"/>
                             <constraint firstAttribute="centerX" secondItem="mcZ-Ei-BmM" secondAttribute="centerX" constant="-0.5" id="AVG-fR-wwF"/>
@@ -287,7 +288,6 @@
                             <constraint firstItem="xqC-Oe-HU2" firstAttribute="top" secondItem="3tZ-Fe-22D" secondAttribute="bottom" constant="8" id="icK-DU-c7b"/>
                             <constraint firstItem="XEc-Tt-LDC" firstAttribute="leading" secondItem="pnk-h6-iOO" secondAttribute="trailing" constant="8" id="kSa-YD-gnG"/>
                             <constraint firstItem="xTn-ks-M2s" firstAttribute="top" secondItem="UFt-zb-ORA" secondAttribute="bottom" constant="8" id="mZt-Lm-zGb"/>
-                            <constraint firstItem="Uxp-Mw-JVe" firstAttribute="top" secondItem="jmu-Aw-yBj" secondAttribute="bottom" constant="20" id="o9o-Qf-o0o"/>
                             <constraint firstItem="pnk-h6-iOO" firstAttribute="width" secondItem="OkZ-sh-Jok" secondAttribute="width" id="qc9-bK-0V0"/>
                             <constraint firstItem="pnk-h6-iOO" firstAttribute="leading" secondItem="VzV-aG-aai" secondAttribute="trailing" constant="8" id="qyy-Ee-hya"/>
                             <constraint firstItem="gAr-Dx-iWk" firstAttribute="leading" secondItem="xTn-ks-M2s" secondAttribute="trailing" constant="8" id="r6t-IT-ELb"/>
